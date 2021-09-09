@@ -6,6 +6,22 @@
     <content><![CDATA[<h2 id="一、广播机制简介"><a href="#一、广播机制简介" class="headerlink" title="一、广播机制简介"></a>一、广播机制简介</h2><h3 id="1-标准广播"><a href="#1-标准广播" class="headerlink" title="1.标准广播"></a>1.标准广播</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">特点：不可截断，一对多，效率高</span><br><span class="line">优点：自由控制注册和注销，灵活性好</span><br><span class="line">缺点：必须程序启动才能接收广播，所以逻辑写在Oncreate中</span><br></pre></td></tr></table></figure>
 
 <h3 id="2-有序广播"><a href="#2-有序广播" class="headerlink" title="2.有序广播"></a>2.有序广播</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">特点：可截断，一个接一个，有优先级</span><br><span class="line">优点：程序未启动也能接收广播</span><br><span class="line">缺点：还没发现</span><br></pre></td></tr></table></figure>
+
 ]]></content>
+  </entry>
+  <entry>
+    <title>数据存储</title>
+    <url>/2021/09/09/%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8/</url>
+    <content><![CDATA[<h1 id="数据存储"><a href="#数据存储" class="headerlink" title="数据存储"></a>数据存储</h1><h2 id="文件存储"><a href="#文件存储" class="headerlink" title="文件存储"></a>文件存储</h2><h3 id="数据储存到文件中"><a href="#数据储存到文件中" class="headerlink" title="数据储存到文件中"></a>数据储存到文件中</h3><h4 id="步骤思路"><a href="#步骤思路" class="headerlink" title="步骤思路"></a>步骤思路</h4><p>（1）通过openFileOutput()方法得到一个FileOutputStream对象<br><code>out = openFileOutput ( &quot;文件名&quot; , Context.MODE_PRIVATE);</code><br>第二个参数是操作模式，有四种，常用的两种，MODE_PRIVATE（覆盖），MODE_APPEND（追加）</p>
+<p>（2）借此构造一个OutputStreamWriter对象<br><code>new OutputStreamWriter(out)</code></p>
+<p>（3）再借OutputStreamWriter构造出一个BufferedWriter对象<br><code>writer = new BufferedWriter(new OutputStreamWriter(out));</code></p>
+<p>（4）通过BufferedWriter将数据写入文件<br><code>writer.write(data) ;</code></p>
+<h4 id="代码示例"><a href="#代码示例" class="headerlink" title="代码示例"></a>代码示例</h4><p>(<code>) public void save() &#123;     String data = &quot;Data to save&quot; ;     FileOutputStream out = null;     BufferedWriter writer = null;     try &#123;         out = openFileOutput ( &quot;data&quot; , Context.MODE_PRIVATE);         writer = new BufferedWriter(new OutputStreamWriter(out) );         writer.write(data) ;     &#125;catch (IOException e) &#123;             e.printStackTrace( );     &#125;finally &#123;         try &#123;             if (writer != null) &#123;             writer.close( ) ;         &#125;     &#125; catch (IOException e) &#123;         e.printStackTrace( );         &#125;     &#125; &#125; (</code>)</p>
+<h3 id="从文件中读取数据"><a href="#从文件中读取数据" class="headerlink" title="从文件中读取数据"></a>从文件中读取数据</h3><h4 id="步骤思路-1"><a href="#步骤思路-1" class="headerlink" title="步骤思路"></a>步骤思路</h4><p>（1）通过openFileInput获取一个FileInputStream对象<br><code>in = openFileInput ( &quot;文件名&quot; ) ;</code></p>
+<p>（2）借此构建出一个InputStreamReader对象<br><code>new InputStreamReader(in)</code></p>
+<p>（3）接着借此构建出一个BufferedReader对象<br><code>reader = new BufferedReader(new InputStreamReader(in));</code></p>
+<p>（4）通过BufferedReader对象读取数据，存放在一个StringBuilder对象中，返回读取内容<br><code>StringBuilder content = new StringBuilder( );</code><br><code>content.append (line) ;</code></p>
+<h4 id="代码示例-1"><a href="#代码示例-1" class="headerlink" title="代码示例"></a>代码示例</h4><p>(<code>) public String load( ) &#123;     FileInputStream in = null;     BufferedReader reader = null;     StringBuilder content = new StringBuilder( );     try &#123;         in = openFileInput ( &quot;data&quot; ) ;         reader = new BufferedReader(new InputStreamReader(in));         String line = &quot;&quot;;         while ( ( line = reader. readLine()) != null) &#123;             content.append (line) ;         &#125;     &#125;catch ( IOException e) &#123;         e.printStackTrace( ) ;     &#125;finally &#123;         if ( reader != null) &#123;             try &#123;                 reader.close();             &#125;catch ( IOException e) &#123;                 e.printStackTrace( );             &#125;         &#125;     &#125;     return content.toString( ); &#125; (</code>)</p>
+<h2 id="SharedPreference存储"><a href="#SharedPreference存储" class="headerlink" title="SharedPreference存储"></a>SharedPreference存储</h2><h2 id="数据库存储"><a href="#数据库存储" class="headerlink" title="数据库存储"></a>数据库存储</h2>]]></content>
   </entry>
 </search>
