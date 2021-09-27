@@ -183,7 +183,7 @@ getDefaultSharedPreferences()
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;manifest xmlns:android=&quot;http:/ /schemas.android.com/apk/res/android&quot;</span><br><span class="line">    package=&quot;com.example.playvideotest&quot;&gt;</span><br><span class="line">    &lt;uses-permission android:name=&quot;android.permission.wRITE_EXTERNAL_STORAGE&quot;/&gt;</span><br><span class="line">&lt;/manifest&gt;</span><br></pre></td></tr></table></figure>]]></content>
   </entry>
   <entry>
-    <title>广播机制</title>
+    <title>Android多线程编程</title>
     <url>/2021/09/27/Android%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%BC%96%E7%A8%8B/</url>
     <content><![CDATA[<h1 id="线程的基本用法"><a href="#线程的基本用法" class="headerlink" title="线程的基本用法"></a>线程的基本用法</h1><h2 id="定义启动一个线程"><a href="#定义启动一个线程" class="headerlink" title="定义启动一个线程"></a>定义启动一个线程</h2><p>第一种方式：（耦合性高不推荐使用）<br>（1）新建一个类继承自Thread<br>（2）重写父类的run()方法<br>（3）在run()中编写耗时逻辑</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">class MyThread extends Thread&#123;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public void run()&#123;</span><br><span class="line">        //处理具体的逻辑</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
