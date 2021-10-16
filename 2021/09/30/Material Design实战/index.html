@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/all.min.css" integrity="sha256-2H3fkXt6FEmrReK448mDVGKb3WW2ZZw35gI7vqHOE4Y=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"anbyss.github.io","root":"/","images":"/images","scheme":"Gemini","version":"8.7.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+<meta name="description" content="Material DesignMaterial Design是界面设计语言，用于解决Android平台界面风格不统一的问题 Toolbar（1）打开res&#x2F;values&#x2F;styles.xml文件AppTheme的parent主题通常有Theme.AppCompat.NoActionBar和Theme.AppCompat.Light.NoActionBar这两种主题不带ActionBar的主题（2）">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Material Design实战">
+<meta property="og:url" content="https://anbyss.github.io/2021/09/30/Material%20Design%E5%AE%9E%E6%88%98/index.html">
+<meta property="og:site_name" content="猫也の博客">
+<meta property="og:description" content="Material DesignMaterial Design是界面设计语言，用于解决Android平台界面风格不统一的问题 Toolbar（1）打开res&#x2F;values&#x2F;styles.xml文件AppTheme的parent主题通常有Theme.AppCompat.NoActionBar和Theme.AppCompat.Light.NoActionBar这两种主题不带ActionBar的主题（2）">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-09-30T13:45:58.713Z">
+<meta property="article:modified_time" content="2021-10-16T11:54:22.618Z">
+<meta property="article:author" content="猫也">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://anbyss.github.io/2021/09/30/Material%20Design%E5%AE%9E%E6%88%98/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://anbyss.github.io/2021/09/30/Material%20Design%E5%AE%9E%E6%88%98/","path":"2021/09/30/Material Design实战/","title":"Material Design实战"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Material Design实战 | 猫也の博客</title>
+  
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="猫也の博客" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">猫也の博客</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Material-Design"><span class="nav-number">1.</span> <span class="nav-text">Material Design</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Toolbar"><span class="nav-number">2.</span> <span class="nav-text">Toolbar</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%BB%91%E5%8A%A8%E8%8F%9C%E5%8D%95"><span class="nav-number">3.</span> <span class="nav-text">滑动菜单</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#DrawerLayout"><span class="nav-number">3.1.</span> <span class="nav-text">DrawerLayout</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#NavigationView"><span class="nav-number">3.2.</span> <span class="nav-text">NavigationView</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%82%AC%E6%B5%AE%E6%8C%89%E9%92%AE%E5%92%8C%E5%8F%AF%E4%BA%A4%E4%BA%92%E6%8F%90%E7%A4%BA"><span class="nav-number">4.</span> <span class="nav-text">悬浮按钮和可交互提示</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#FloatingActionButton"><span class="nav-number">4.1.</span> <span class="nav-text">FloatingActionButton</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Snackbar-%E5%92%8CToast%E7%B1%BB%E4%BC%BC"><span class="nav-number">4.2.</span> <span class="nav-text">Snackbar(和Toast类似)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CoordinatorLayout"><span class="nav-number">4.3.</span> <span class="nav-text">CoordinatorLayout</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8D%A1%E7%89%87%E5%BC%8F%E5%B8%83%E5%B1%80"><span class="nav-number">5.</span> <span class="nav-text">卡片式布局</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#CardView"><span class="nav-number">5.1.</span> <span class="nav-text">CardView</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#APPBarLayout"><span class="nav-number">5.2.</span> <span class="nav-text">APPBarLayout</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%8B%E6%8B%89%E5%88%B7%E6%96%B0"><span class="nav-number">6.</span> <span class="nav-text">下拉刷新</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%AF%E6%8A%98%E5%8F%A0%E5%BC%8F%E6%A0%87%E9%A2%98%E6%A0%8F"><span class="nav-number">7.</span> <span class="nav-text">可折叠式标题栏</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#CollapsingToolbarLayout%EF%BC%88%E5%8F%AA%E8%83%BD%E4%BD%9C%E4%B8%BAAPPBarLayout%E7%9A%84%E7%9B%B4%E6%8E%A5%E5%AD%90%E5%B8%83%E5%B1%80%EF%BC%8CAPPBarLayout%E5%8F%88%E6%98%AFCoordinatorLayout%E7%9A%84%E5%AD%90%E5%B8%83%E5%B1%80%EF%BC%89"><span class="nav-number">7.1.</span> <span class="nav-text">CollapsingToolbarLayout（只能作为APPBarLayout的直接子布局，APPBarLayout又是CoordinatorLayout的子布局）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%85%E5%88%86%E5%88%A9%E7%94%A8%E7%B3%BB%E7%BB%9F%E7%8A%B6%E6%80%81%E6%A0%8F%E7%A9%BA%E9%97%B4"><span class="nav-number">7.2.</span> <span class="nav-text">充分利用系统状态栏空间</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-overview">
+            <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="猫也"
+      src="/images/cat.png">
+  <p class="site-author-name" itemprop="name">猫也</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">5</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Anbyss/Anbyss.github.io" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Anbyss&#x2F;Anbyss.github.io" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:yourname@gmail.com" title="E-Mail → mailto:yourname@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://weibo.com/yourname" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;yourname" rel="noopener" target="_blank"><i class="fab fa-weibo fa-fw"></i>Weibo</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/atom.xml" title="RSS → &#x2F;atom.xml"><i class="fa fa-rss fa-fw"></i>RSS</a>
+      </span>
+  </div>
+
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://anbyss.github.io/2021/09/30/Material%20Design%E5%AE%9E%E6%88%98/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/cat.png">
+      <meta itemprop="name" content="猫也">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="猫也の博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Material Design实战
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-09-30 21:45:58" itemprop="dateCreated datePublished" datetime="2021-09-30T21:45:58+08:00">2021-09-30</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2021-10-16 19:54:22" itemprop="dateModified" datetime="2021-10-16T19:54:22+08:00">2021-10-16</time>
+      </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="Material-Design"><a href="#Material-Design" class="headerlink" title="Material Design"></a>Material Design</h1><p><strong>Material Design是界面设计语言</strong>，用于解决Android平台界面风格不统一的问题</p>
+<h1 id="Toolbar"><a href="#Toolbar" class="headerlink" title="Toolbar"></a>Toolbar</h1><p>（1）打开res/values/styles.xml文件<br>AppTheme的parent主题通常有<strong>Theme.AppCompat.NoActionBar</strong>和<strong>Theme.AppCompat.Light.NoActionBar</strong>这两种主题不带ActionBar的主题<br>（2）在主活动的布局里加上Toolbar控件<br>Android Studio 2.2版本的：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;android.support.v7.widget.Toolbar</span><br><span class="line">        android:id=&quot;@+id/toolbar&quot;</span><br><span class="line">        android:layout_width=&quot;match_parent&quot;</span><br><span class="line">        android:layout_height=&quot;?attr/actionBarSize&quot;</span><br><span class="line">        android:background=&quot;?attr/colorPrimary&quot;</span><br><span class="line">        android:theme=&quot;@style/ThemeOverlay.AppCompat.Dark.ActionBar&quot;</span><br><span class="line">        app:popupTheme=&quot;@style/ThemeOverlay.AppCompat.Light&quot;</span><br><span class="line">        /&gt;</span><br></pre></td></tr></table></figure>
+<p>Android Studio 3.5.2版本的：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;androidx.appcompat.widget.Toolbar</span><br><span class="line">       android:id=&quot;@+id/toolbar&quot;</span><br><span class="line">       android:layout_width=&quot;match_parent&quot;</span><br><span class="line">       android:layout_height=&quot;?attr/actionBarSize&quot;</span><br><span class="line">       android:background=&quot;?attr/colorPrimary&quot;</span><br><span class="line">       android:theme=&quot;@style/ThemeOverlay.AppCompat.Dark.ActionBar&quot;</span><br><span class="line">       app:popupTheme=&quot;@style/ThemeOverlay.AppCompat.Light&quot;</span><br><span class="line">       /&gt;</span><br></pre></td></tr></table></figure>
+<p>**!!!**3.5.2版本的这个控件在第三版的书中有写到，但是是另一种语言写的程序，与v4,v7的依赖包里的控件不适配<br>（3）修改MainActivity<br>1.获取实例<br><code>setContentView(R.layout.activity_main);</code><br><code>Toolbar toolbar = (Toolbar)findViewById(R.id.toolbar);</code><br>2.传入实例<br><code>setSupportActionBar(toolbar);</code><br>（4）修改标题栏上的文字内容<br>在AndroidManifest.xml中在activity中增加一个android:label的属性，默认为应用名称<br><code>android:label=&quot;Fruits&quot;</code><br>（5）添加action按钮<br>1.准备图片<br>2.在res中创建一个menu的文件夹，在这个文件夹里创建一个toolbar.xml文件<br>3.toolbar.xml的具体代码：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;menu xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;</span><br><span class="line">    xmlns:app=&quot;http://schemas.android.com/apk/res-auto&quot;&gt;</span><br><span class="line">    &lt;item</span><br><span class="line">        android:id=&quot;@+id/backup&quot;</span><br><span class="line">        android:icon=&quot;@drawable/ic_backup&quot;</span><br><span class="line">        android:title=&quot;Backup&quot;</span><br><span class="line">        app:showAsAction=&quot;always&quot; /&gt;</span><br><span class="line">    &lt;item</span><br><span class="line">        android:id=&quot;@+id/delete&quot;</span><br><span class="line">        android:icon=&quot;@drawable/ic_delete&quot;</span><br><span class="line">        android:title=&quot;Delete&quot;</span><br><span class="line">        app:showAsAction=&quot;ifRoom&quot;/&gt;</span><br><span class="line">    &lt;item</span><br><span class="line">        android:id=&quot;@+id/settings&quot;</span><br><span class="line">        android:icon=&quot;@drawable/ic_settings&quot;</span><br><span class="line">        android:title=&quot;Settings&quot;</span><br><span class="line">        app:showAsAction=&quot;never&quot;/&gt;</span><br><span class="line">&lt;/menu&gt;</span><br></pre></td></tr></table></figure>
+<p>可以看到，我们通过<item>标签来定义action按钮<br>android:id用于指定按钮的id<br>android:icon用于指定按钮的图标<br>android:title用于指定按钮的文字<br>app:showAsAction用来指定按钮的显示位置<br><strong>使用app命名空间是为了能够兼容低版本的系统</strong><br>showAsAction主要有以下几种值可选:<br>always表示永远显示在Toolbar中，如果屏幕空间不够则不显示<br>ifRoom表示屏幕空间足够的情况下显示在Toolbar中，不够的话就显示在菜单当中;<br>never则表示永远显示在菜单当中。<br><strong>Toolbar中的action按钮只会显示图标，菜单中的action按钮只会显示文字</strong><br>（6）修改MainActivity中的代码<br>1.在onCreateOptionsMenu方法中加载toolbar.xml菜单文件</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">public boolean onCreateOptionsMenu(Menu menu)&#123;</span><br><span class="line">    getMenuInflater().inflate(R.menu.toolbar,menu);</span><br><span class="line">    return true;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>2.在onOptionsItemSelected方法中处理各个按钮的点击事件</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">@Override</span><br><span class="line">public boolean onOptionsItemSelected (MenuItem item) &#123;</span><br><span class="line">    switch (item.getItemId()) &#123;</span><br><span class="line">        case R.id.backup:</span><br><span class="line">            Toast.makeText(this, &quot;You clicked Backup&quot;, Toast.LENGTH_SHORT).</span><br><span class="line">                    show();</span><br><span class="line">            break;</span><br><span class="line">        case R.id.delete:</span><br><span class="line">            Toast.makeText(this, &quot;You clicked Delete&quot; ,Toast.LENGTH_SHORT).</span><br><span class="line">                    show() ;</span><br><span class="line">            break;</span><br><span class="line">        case R.id.settings:</span><br><span class="line">            Toast.makeText(this, &quot;You clicked Settings&quot;, Toast.LENGTH_SHORT).</span><br><span class="line">                    show();</span><br><span class="line">            break;</span><br><span class="line">        default:</span><br><span class="line">    &#125;</span><br><span class="line">    return true;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="滑动菜单"><a href="#滑动菜单" class="headerlink" title="滑动菜单"></a>滑动菜单</h1><h2 id="DrawerLayout"><a href="#DrawerLayout" class="headerlink" title="DrawerLayout"></a>DrawerLayout</h2><p>（1）添加DrawerLayout控件</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;android.support.v4.widget.DrawerLayout</span><br><span class="line">    xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;</span><br><span class="line">    xmlns:app=&quot;http://schemas.android.com/apk/res-auto&quot;</span><br><span class="line">    android:id=&quot;@+id/drawer_layout&quot;</span><br><span class="line">    android:layout_width=&quot;match_parent&quot;</span><br><span class="line">    android:layout_height=&quot;match_parent&quot;</span><br><span class="line">    &gt;</span><br><span class="line">&lt;/android.support.v4.widget.DrawerLayout&gt;</span><br></pre></td></tr></table></figure>
+<p><strong>注意：</strong>DrawerLayout的子控件必须指定layout_gravity属性，left滑动菜单就在左边。<br>（2）为使用户意识到有滑动菜单，建议添加一个导航按钮<br>1.添加一张导航按钮的图在drawable-xxhdpi目录下<br>2.获取DrawerLayout的实例<br><code>DrawerLayout mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);</code><br>3.接着调用ActionBar的setDisplayHomeAsUpEnabled()方法显示导航按钮<br>4.又调用ActionBar的setHomeAsUpIndicator()方法设置一个导航按钮图标</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ActionBar actionBar = getSupportActionBar();</span><br><span class="line">            if (actionBar != null) &#123;</span><br><span class="line">                actionBar.setDisplayHomeAsUpEnabled(true);</span><br><span class="line">                actionBar.setHomeAsUpIndicator(R.drawable.ic_menu);</span><br><span class="line">            &#125;</span><br></pre></td></tr></table></figure>
+<p>5.接着在onOptionsItemSelected方法中调用openDrawer()方法将滑动菜单展示出来</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">public boolean onOptionsItemSelected(MenuItem item) &#123;</span><br><span class="line">            switch (item.getItemId()) &#123;</span><br><span class="line">                case android.R.id.home:</span><br><span class="line">                    mDrawerLayout.openDrawer(GravityCompat.START);</span><br><span class="line">                    break;</span><br></pre></td></tr></table></figure>
+<h2 id="NavigationView"><a href="#NavigationView" class="headerlink" title="NavigationView"></a>NavigationView</h2><p>（1）添加依赖<br><code>compile &#39;com.android.support:design:24.2.1&#39;</code><br><code>compile &#39;de.hdodenhof:circleimageview:2.1.0&#39;</code><br>（2）准备menu和headerlayout<br>1.menu（用来显示具体的菜单项）<br>在res下新建一个menu的文件夹，创建一个nav_menu.xml文件</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span><br><span class="line">&lt;menu xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;&gt;</span><br><span class="line">    &lt;group android:checkableBehavior=&quot;single&quot;&gt;//single表示组中所有的菜单项只能单选</span><br><span class="line">        &lt;item</span><br><span class="line">            android:id=&quot;@+id/call&quot;//菜单项id</span><br><span class="line">            android:icon=&quot;@drawable/nav_call&quot;//菜单项图标</span><br><span class="line">            android:title=&quot;Call&quot;/&gt;//菜单项显示的文字</span><br><span class="line">        &lt;item</span><br><span class="line">            android:id=&quot;@+id/friends&quot;</span><br><span class="line">            android:icon=&quot;@drawable/nav_friends&quot;</span><br><span class="line">            android:title=&quot;Friends&quot; /&gt;</span><br><span class="line">        &lt;item</span><br><span class="line">            android:id=&quot;@+id/location&quot;</span><br><span class="line">            android:icon=&quot;@drawable/nav_location&quot;</span><br><span class="line">            android:title=&quot;Location&quot;/&gt;</span><br><span class="line">        &lt;item</span><br><span class="line">            android:id=&quot;@+id/mail&quot;</span><br><span class="line">            android:icon=&quot;@drawable/nav_mail&quot;</span><br><span class="line">            android:title=&quot;Mail&quot; /&gt;</span><br><span class="line">        &lt;item</span><br><span class="line">            android:id=&quot;@+id/task&quot;</span><br><span class="line">            android:icon=&quot;@drawable/nav_task&quot;</span><br><span class="line">            android:title=&quot;Tasks&quot; /&gt;</span><br><span class="line">    &lt;/group&gt;</span><br><span class="line"></span><br><span class="line">&lt;/menu&gt;</span><br></pre></td></tr></table></figure>
+<p>2.headerlayout（用来显示头部布局，可以随意定制）<br>在layout文件夹下新建一个nav_header.xml文件</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span><br><span class="line">&lt;RelativeLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;</span><br><span class="line">    android:padding=&quot;10dp&quot;</span><br><span class="line">    android:layout_width=&quot;match_parent&quot;</span><br><span class="line">    android:layout_height=&quot;180dp&quot;</span><br><span class="line">    android:background=&quot;?attr/colorPrimary&quot;&gt;</span><br><span class="line">    &lt;de.hdodenhof.circleimageview.CircleImageView//图片圆形化控件</span><br><span class="line">        android:id=&quot;@+id/icon_image&quot;</span><br><span class="line">        android:layout_width=&quot;70dp&quot;</span><br><span class="line">        android:layout_height=&quot;70dp&quot;</span><br><span class="line">        android:src=&quot;@drawable/nav_icon&quot;</span><br><span class="line">        android:layout_centerInParent=&quot;true&quot;/&gt;</span><br><span class="line">    &lt;TextView//用于显示用户名</span><br><span class="line">        android:id=&quot;@+id/username&quot;</span><br><span class="line">        android:layout_width=&quot;wrap_content&quot;</span><br><span class="line">        android:layout_height=&quot;wrap_content&quot;</span><br><span class="line">        android:layout_alignParentBottom=&quot;true&quot;</span><br><span class="line">        android:text=&quot;tonygreendev@gmail.com&quot;</span><br><span class="line">        android:textColor=&quot;#FFF&quot;</span><br><span class="line">        android:textSize=&quot;14sp&quot;</span><br><span class="line">        /&gt;</span><br><span class="line">    &lt;TextView//用于显示邮箱地址</span><br><span class="line">        android:id=&quot;@+id/mail&quot;</span><br><span class="line">        android:layout_width=&quot;wrap_content&quot;</span><br><span class="line">        android:layout_height=&quot;wrap_content&quot;</span><br><span class="line">        android:layout_above=&quot;@id/username&quot;</span><br><span class="line">        android:text=&quot;Tony Green&quot;</span><br><span class="line">        android:textColor=&quot;#FFF&quot;</span><br><span class="line">        android:textSize=&quot;14sp&quot;</span><br><span class="line">        /&gt;</span><br><span class="line">&lt;/RelativeLayout&gt;</span><br></pre></td></tr></table></figure>
+<p>（3）添加NavigationView控件</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;android.support.design.widget.NavigationView</span><br><span class="line">        android:id=&quot;@+id/nav_view&quot;</span><br><span class="line">        android:layout_width=&quot;match_parent&quot;</span><br><span class="line">        android:layout_height=&quot;match_parent&quot;</span><br><span class="line">        android:layout_gravity=&quot;start&quot;</span><br><span class="line">        app:menu=&quot;@menu/nav_menu&quot;//添加menu</span><br><span class="line">        app:headerLayout=&quot;@layout/nav_header&quot;//添加headerlayout</span><br><span class="line">        /&gt;</span><br></pre></td></tr></table></figure>
+<p>（4）添加点击事件<br>1.找到NavigationView的实例<br>2.调用setCheckedItem方法将Call菜单项设置为默认选中<br>3.接着调用setNavigationItemSelectedListener方法设置一个菜单项选中事件的监听器，当用户点击任意菜单时会回调到OnNavigationItemSelectedListener()方法中<br>4.调用closeDrawers()方法将滑动菜单关闭</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">navView.setCheckedItem(R.id.call);</span><br><span class="line">navView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() &#123;</span><br><span class="line">    @Override</span><br><span class="line">    public boolean onNavigationItemSelected(MenuItem item) &#123;</span><br><span class="line">        mDrawerLayout.closeDrawers();</span><br><span class="line">        return true;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h1 id="悬浮按钮和可交互提示"><a href="#悬浮按钮和可交互提示" class="headerlink" title="悬浮按钮和可交互提示"></a>悬浮按钮和可交互提示</h1><h2 id="FloatingActionButton"><a href="#FloatingActionButton" class="headerlink" title="FloatingActionButton"></a>FloatingActionButton</h2><p>（1）准备好图（不建议用有底色的，大小不对容易效果很差）<br>（2）添加FloatingActionButton控件（也用了design support库，要添加依赖）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;android.support.design.widget.FloatingActionButton</span><br><span class="line">            android:id=&quot;@+id/fab&quot;</span><br><span class="line">            android:layout_width=&quot;match_parent&quot;</span><br><span class="line">            android:layout_height=&quot;wrap_content&quot;</span><br><span class="line">            android:layout_gravity=&quot;bottom|end&quot;</span><br><span class="line">            android:layout_margin=&quot;16dp&quot;</span><br><span class="line">            android:src=&quot;@drawable/ic_done&quot;</span><br><span class="line">            app:elevation=&quot;10dp&quot;//调整悬浮高度，高度越高，阴影越少</span><br><span class="line">            app:backgroundTint=&quot;@color/cardview_light_background&quot;/&gt;</span><br></pre></td></tr></table></figure>
+<p><strong>！！！</strong>悬浮按钮默认的底色是红色的，建议使用app:backgroundTint=”@color/cardview_light_background”将底色调成透明色</p>
+<h2 id="Snackbar-和Toast类似"><a href="#Snackbar-和Toast类似" class="headerlink" title="Snackbar(和Toast类似)"></a>Snackbar(和Toast类似)</h2><p>1.调用了make()方法创建一个Snackbar对象<br>第一个参数可以是当前布局的任意一个View都可以，用于寻找最外层的布局<br>第二个参数是Snackbar中显示的内容<br>第三个参数是Snackbar显示的时长<br>2.调用setAction()设置一个动作，这里是弹出一个Toast</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Snackbar.make(view,&quot;Data deleted&quot;,Snackbar.LENGTH_SHORT).setAction(&quot;Undo&quot;, new View.OnClickListener() &#123;</span><br><span class="line">    @Override</span><br><span class="line">    public void onClick(View v) &#123;</span><br><span class="line">        Toast.makeText(MainActivity.this, &quot;Data restored&quot;, Toast.LENGTH_SHORT).show();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">    .show();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>！！！</strong>会出现Snackbar遮挡悬浮按钮的情况，用下面的CoordinatorLayout解决</p>
+<h2 id="CoordinatorLayout"><a href="#CoordinatorLayout" class="headerlink" title="CoordinatorLayout"></a>CoordinatorLayout</h2><p>（1）添加CoordinatorLayout控件（放在DrawerLayout里面，包着Toolbar和FloatingActionButton，就可以解决悬浮按钮被遮挡的问题）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;android.support.design.widget.CoordinatorLayout</span><br><span class="line">        android:layout_width=&quot;match_parent&quot;</span><br><span class="line">        android:layout_height=&quot;match_parent&quot;&gt;</span><br><span class="line"></span><br><span class="line">&lt;/android.support.design.widget.CoordinatorLayout&gt;</span><br></pre></td></tr></table></figure>
+<h1 id="卡片式布局"><a href="#卡片式布局" class="headerlink" title="卡片式布局"></a>卡片式布局</h1><h2 id="CardView"><a href="#CardView" class="headerlink" title="CardView"></a>CardView</h2><p>（1）添加依赖<br><code>compile &#39;com.android.support:recyclerview-v7:24.2.1&#39;</code><br><code>compile &#39;com.android.support:cardview-v7:24.2.1&#39;</code><br><code>compile &#39;com.github.bumptech.glide:glide:3.7.0&#39;</code><br>Glide是一个超级强大的图片加载库，一行代码即可实现图片加载功能<br>（2）在CoordinatorLayout中添加一个RecyclerView（类似做瀑布流的过程）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"> &lt;android.support.v7.widget.RecyclerView</span><br><span class="line">    android:id=&quot;@+id/recycler_view&quot;</span><br><span class="line">    android:layout_width=&quot;match_parent&quot;</span><br><span class="line">    android:layout_height=&quot;match_parent&quot;</span><br><span class="line">/&gt;</span><br></pre></td></tr></table></figure>
+<p>（3）定义一个实体类Fruit</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">public class Fruit &#123;</span><br><span class="line">    private String name;</span><br><span class="line">    private int imageId;</span><br><span class="line">    public Fruit(String name,int imageId) &#123;</span><br><span class="line">        this.name = name;</span><br><span class="line">        this .imageId = imageId;</span><br><span class="line">    &#125;</span><br><span class="line">    public String getName( ) &#123;</span><br><span class="line">        return name;</span><br><span class="line">    &#125;</span><br><span class="line">    public int getImageId( ) &#123;</span><br><span class="line">        return imageId;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>（4）在layout目录下新建fruit_item.xml(用来显示水果图片和文字)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">&lt;android.support.v7.widget.CardView</span><br><span class="line">    xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;</span><br><span class="line">    xmlns:app=&quot;http://schemas.android.com/apk/res-auto&quot;</span><br><span class="line">    android:layout_width=&quot;match_parent&quot;</span><br><span class="line">    android:layout_height=&quot;wrap_content&quot;</span><br><span class="line">    android:layout_margin=&quot;5dp&quot;</span><br><span class="line">    app:cardCornerRadius=&quot;15dp&quot;&gt;</span><br><span class="line"></span><br><span class="line">    &lt;LinearLayout</span><br><span class="line">        android:orientation=&quot;vertical&quot;</span><br><span class="line">        android:layout_width=&quot;match_parent&quot;</span><br><span class="line">        android:layout_height=&quot;wrap_content&quot;&gt;</span><br><span class="line"></span><br><span class="line">        &lt;ImageView</span><br><span class="line">            android:id=&quot;@+id/fruit_image&quot;</span><br><span class="line">            android:layout_width=&quot;match_parent&quot;</span><br><span class="line">            android:layout_height=&quot;100dp&quot;</span><br><span class="line">            android:scaleType=&quot;centerCrop&quot;/&gt;</span><br><span class="line">            //scaleType用于指定图片的缩放模式，centerCrop表示原比例填充，多余部分裁减掉</span><br><span class="line">        &lt;TextView</span><br><span class="line">            android:id=&quot;@+id/fruit_name&quot;</span><br><span class="line">            android:layout_width=&quot;wrap_content&quot;</span><br><span class="line">            android:layout_height=&quot;wrap_content&quot;</span><br><span class="line">            android:layout_gravity=&quot;center_horizontal&quot;</span><br><span class="line">            android:layout_margin=&quot;5dp&quot;</span><br><span class="line">            android:textSize=&quot;16sp&quot;/&gt;</span><br><span class="line">    &lt;/LinearLayout&gt;</span><br><span class="line">&lt;/android.support.v7.widget.CardView&gt;</span><br></pre></td></tr></table></figure>
+<p>（5）准备一个适配器</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line">public class FruitAdapter extends RecyclerView.Adapter&lt;FruitAdapter.ViewHolder&gt; &#123;</span><br><span class="line"></span><br><span class="line">    private List&lt;Fruit&gt; mFruitList;</span><br><span class="line">    private Context mContext;</span><br><span class="line">    static class ViewHolder extends RecyclerView.ViewHolder &#123;</span><br><span class="line">        CardView cardView;</span><br><span class="line">        ImageView fruitImage;</span><br><span class="line">        TextView fruitName;</span><br><span class="line"></span><br><span class="line">        public ViewHolder(View view) &#123;</span><br><span class="line">            super(view);</span><br><span class="line">            cardView = (CardView) view;</span><br><span class="line">            fruitImage = (ImageView) view.findViewById(R.id.fruit_image);</span><br><span class="line">            fruitName = (TextView) view.findViewById(R.id.fruit_name);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public FruitAdapter(List&lt;Fruit&gt;fruitList)&#123;</span><br><span class="line">        mFruitList = fruitList;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public ViewHolder onCreateViewHolder(ViewGroup parent,int viewType)&#123;</span><br><span class="line">        if (mContext == null)&#123;</span><br><span class="line">            mContext = parent.getContext();</span><br><span class="line">        &#125;</span><br><span class="line">        View view = LayoutInflater.from(mContext).inflate(R.layout.fruit_item,parent,false);</span><br><span class="line">        final ViewHolder holder = new ViewHolder(view) ;</span><br><span class="line">        holder.cardView.setOnClickListener(new View.OnClickListener() &#123;</span><br><span class="line">            @Override</span><br><span class="line">            public void onClick (View v) &#123;</span><br><span class="line">                int position = holder.getAdapterPosition();</span><br><span class="line">                Fruit fruit = mFruitList.get(position);</span><br><span class="line">                Intent intent = new Intent(mContext, FruitActivity.class);</span><br><span class="line">                intent.putExtra(FruitActivity.FRUIT_NAME,fruit.getName());</span><br><span class="line">                intent.putExtra(FruitActivity.FRUIT_IMAGE_ID,fruit.getImageId());</span><br><span class="line">                mContext.startActivity(intent);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">        return holder;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public void onBindViewHolder(ViewHolder holder,int position)&#123;</span><br><span class="line">        Fruit fruit = mFruitList.get(position);</span><br><span class="line">        holder.fruitName.setText(fruit.getName());</span><br><span class="line">        Glide.with(mContext).load(fruit.getImageId()).into(holder.fruitImage);</span><br><span class="line">    &#125;</span><br><span class="line">    @Override</span><br><span class="line">    public int getItemCount()&#123;</span><br><span class="line">        return mFruitList.size();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>注意：</strong>在onBindViewHolder()方法中用了Glide加载水果图片<br><code>Glide.with(mContext).load(fruit.getImageId()).into(holder.fruitImage);</code><br><strong>Glide用法：</strong><br>首先传入一个Context、Activity或Fragment参数<br>然后调用load()方法加载图片，可以是URL地址，也可以是本地路径，或者是一个资源id<br>最后调用into()方法将图片设置到具体某一个ImageView中即可<br>（6）修改MainActivity中的代码<br>1.定义一个数组，放很多个Fruit的实例</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">private Fruit[]fruits = &#123;</span><br><span class="line">    new Fruit( &quot;Apple&quot;,R.drawable.apple), new Fruit( &quot;Banana&quot;, R.drawable.banana) ,</span><br><span class="line">    new Fruit (&quot;Orange&quot;,R.drawable.orange),new Fruit(&quot;watermelon&quot;,R.drawable.watermelon) ,</span><br><span class="line">    new Fruit(&quot;Pear&quot;,R.drawable.pear),new Fruit(&quot;Grape&quot;,R.drawable.grape) ,</span><br><span class="line">    new Fruit(&quot;Pineapple&quot;,R.drawable.pineapple),new Fruit( &quot;Strawberry&quot;,R.drawable.strawberry) ,</span><br><span class="line">    new Fruit(&quot;cherry&quot;,R.drawable.cherry),new Fruit( &quot;Mango&quot;,R.drawable.mango)&#125;;</span><br><span class="line">    private List&lt;Fruit&gt; fruitList = new ArrayList&lt;&gt;( ) ;</span><br><span class="line">    private FruitAdapter adapter;</span><br></pre></td></tr></table></figure>
+<p>2.初始化水果数据，实现两列竖向瀑布流</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">initFruits();</span><br><span class="line">RecyclerView recyclerView = (RecyclerView)findViewById(R.id.recycler_view);</span><br><span class="line">GridLayoutManager layoutManager = new GridLayoutManager(this,2);</span><br><span class="line">recyclerView.setLayoutManager(layoutManager);</span><br><span class="line">adapter = new FruitAdapter(fruitList);</span><br><span class="line">recyclerView.setAdapter(adapter);</span><br></pre></td></tr></table></figure>
+<p>3.清空fruitList中的数据，再使用一个随机函数在Fruit数组中挑一个水果放在fruitList中</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">private void initFruits()&#123;</span><br><span class="line">    fruitList.clear();</span><br><span class="line">    for (int i=0;i&lt;50;i++)&#123;</span><br><span class="line">        Random random = new Random();</span><br><span class="line">        int index = random.nextInt(fruits.length);</span><br><span class="line">        fruitList.add(fruits[index]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>问题：</strong>Toolbar被RecyclerView挡住了，用下面的APPBarLayout解决</p>
+<h2 id="APPBarLayout"><a href="#APPBarLayout" class="headerlink" title="APPBarLayout"></a>APPBarLayout</h2><p>（1）在Toolbar外加上APPBarLayout控件</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;android.support.design.widget.AppBarLayout</span><br><span class="line">    android:layout_width=&quot;match_parent&quot;</span><br><span class="line">    android:layout_height=&quot;wrap_content&quot;&gt;</span><br><span class="line">    &lt;android.support.v7.widget.Toolbar</span><br><span class="line">        android:id=&quot;@+id/toolbar&quot;</span><br><span class="line">        android:layout_width=&quot;match_parent&quot;</span><br><span class="line">        android:layout_height=&quot;?attr/actionBarSize&quot;</span><br><span class="line">        android:background=&quot;?attr/colorPrimary&quot;</span><br><span class="line">        android:theme=&quot;@style/ThemeOverlay.AppCompat.Dark.ActionBar&quot;</span><br><span class="line">        app:popupTheme=&quot;@style/ThemeOverlay.AppCompat.Light&quot;</span><br><span class="line">        app:layout_scrollFlags=&quot;scroll|enterAlways|snap&quot;</span><br><span class="line">        /&gt;</span><br><span class="line">&lt;/android.support.design.widget.AppBarLayout&gt;</span><br></pre></td></tr></table></figure>
+
+<p>（2）在RecyclerView中使用app:layout_behavior=”@string/appbar_scrolling_view_behavior”</p>
+<p>（3）这里在Toolbar中添加了一个app:layout_scrollFlags属性,并将这个属性的值指定成了scroll|enterAlways|snap。<br>scroll表示当RecyclerView向上滚动的时候，Toolbar会跟着一起向上滚动并实现隐藏<br>enterAlways表示当RecyclerView向下滚动的时候，Toolbar会跟着一起向下滚动并重新显示<br>snap表示当Toolbar还没有完全隐藏或显示的时候，会根据当前滚动的距离，自动选择是隐藏还是显示</p>
+<h1 id="下拉刷新"><a href="#下拉刷新" class="headerlink" title="下拉刷新"></a>下拉刷新</h1><p>（1）在RecyclerView外嵌套一层SwipeRefreshLayout</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;android.support.v4.widget.SwipeRefreshLayout</span><br><span class="line">    android:id=&quot;@+id/swipe_refresh&quot;</span><br><span class="line">    android:layout_width=&quot;match_parent&quot;</span><br><span class="line">    android:layout_height=&quot;match_parent&quot;</span><br><span class="line">    app:layout_behavior=&quot;@string/appbar_scrolling_view_behavior&quot;&gt;</span><br><span class="line">    &lt;android.support.v7.widget.RecyclerView</span><br><span class="line">        android:id=&quot;@+id/recycler_view&quot;</span><br><span class="line">        android:layout_width=&quot;match_parent&quot;</span><br><span class="line">        android:layout_height=&quot;match_parent&quot;/&gt;</span><br><span class="line">&lt;/android.support.v4.widget.SwipeRefreshLayout&gt;</span><br></pre></td></tr></table></figure>
+<p>（2）处理刷新逻辑<br>1.写在onCreate中的</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">private SwipeRefreshLayout swipeRefresh;</span><br><span class="line">···</span><br><span class="line">swipeRefresh = (SwipeRefreshLayout) findViewById(R.id.swipe_refresh);//拿到实例</span><br><span class="line">swipeRefresh.setColorSchemeResources(R.color.colorPrimary);//设置下拉刷新进度条的颜色</span><br><span class="line">//设置监听器，触发刷新操作的时候就会回调这个监听器的onRefresh()方法</span><br><span class="line">swipeRefresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() &#123;</span><br><span class="line">    @Override</span><br><span class="line">    public void onRefresh() &#123;</span><br><span class="line">        refreshFruits() ;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>2.实现refreshFruits</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">private void refreshFruits()&#123;</span><br><span class="line">    //开启一个线程</span><br><span class="line">    new Thread (new Runnable( ) &#123;</span><br><span class="line">        @Override</span><br><span class="line">        public void run()&#123;</span><br><span class="line">            try &#123;</span><br><span class="line">                //将线程沉睡两秒</span><br><span class="line">                Thread.sleep(2000);</span><br><span class="line">            &#125; catch (InterruptedException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">            //将线程切回主线程</span><br><span class="line">            runOnUiThread(new Runnable() &#123;</span><br><span class="line">                @Override</span><br><span class="line">                public void run() &#123;</span><br><span class="line">                    //调用initFruits重新生成数据</span><br><span class="line">                    initFruits();</span><br><span class="line">                    //调用notifyDataSetChanged通知数据发生了变化</span><br><span class="line">                    adapter.notifyDataSetChanged();</span><br><span class="line">                    //最后调用setRefreshing方法并传入false用于表示刷新事件结束，并隐藏刷新条</span><br><span class="line">                    swipeRefresh.setRefreshing(false);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;).start();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="可折叠式标题栏"><a href="#可折叠式标题栏" class="headerlink" title="可折叠式标题栏"></a>可折叠式标题栏</h1><h2 id="CollapsingToolbarLayout（只能作为APPBarLayout的直接子布局，APPBarLayout又是CoordinatorLayout的子布局）"><a href="#CollapsingToolbarLayout（只能作为APPBarLayout的直接子布局，APPBarLayout又是CoordinatorLayout的子布局）" class="headerlink" title="CollapsingToolbarLayout（只能作为APPBarLayout的直接子布局，APPBarLayout又是CoordinatorLayout的子布局）"></a>CollapsingToolbarLayout（只能作为APPBarLayout的直接子布局，APPBarLayout又是CoordinatorLayout的子布局）</h2><p>创建一个额外活动作为水果的详情展示界面，创建一个FruitActivity<br>（1）在layout中建一个activity_fruit.xml的布局</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br></pre></td><td class="code"><pre><span class="line">&lt;android.support.design.widget.CoordinatorLayout</span><br><span class="line">    xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;</span><br><span class="line">    xmlns:app=&quot;http://schemas.android.com/apk/res-auto&quot;</span><br><span class="line">    android:layout_width=&quot;match_parent&quot;</span><br><span class="line">    android:layout_height=&quot;match_parent&quot;</span><br><span class="line">    android:fitsSystemWindows=&quot;true&quot;&gt;</span><br><span class="line">    &lt;android.support.design.widget.AppBarLayout</span><br><span class="line">    android:id=&quot;@+id/appBar&quot;</span><br><span class="line">    android:layout_width=&quot;match_parent&quot;</span><br><span class="line">    android:layout_height=&quot;250dp&quot;</span><br><span class="line">    android:fitsSystemWindows=&quot;true&quot;</span><br><span class="line">    &gt;</span><br><span class="line">        &lt;android.support.design.widget.CollapsingToolbarLayout</span><br><span class="line">            android:id=&quot;@+id/collapsing_toolbar&quot;</span><br><span class="line">            android:layout_width=&quot;match_parent&quot;</span><br><span class="line">            android:layout_height=&quot;match_parent&quot;</span><br><span class="line">            android:theme=&quot;@style/ThemeOverlay.AppCompat.Dark.ActionBar&quot;</span><br><span class="line">            android:fitsSystemWindows=&quot;true&quot;</span><br><span class="line">            app:contentScrim=&quot;?attr/colorPrimary&quot;</span><br><span class="line">            app:layout_scrollFlags=&quot;scroll|exitUntilCollapsed&quot;&gt;</span><br><span class="line">            &lt;ImageView</span><br><span class="line">                android:id=&quot;@+id/fruit_image_view&quot;</span><br><span class="line">                android:layout_width=&quot;match_parent&quot;</span><br><span class="line">                android:layout_height=&quot;match_parent&quot;</span><br><span class="line">                android:scaleType=&quot;centerCrop&quot;</span><br><span class="line">                android:fitsSystemWindows=&quot;true&quot;</span><br><span class="line">                app:layout_collapseMode=&quot;parallax&quot;/&gt;</span><br><span class="line">            &lt;android.support.v7.widget.Toolbar</span><br><span class="line">                android:id=&quot;@+id/toolbar&quot;</span><br><span class="line">                android:layout_width=&quot;match_parent&quot;</span><br><span class="line">                android:layout_height=&quot;?attr/actionBarSize&quot;</span><br><span class="line">                app:layout_collapseMode=&quot;pin&quot;/&gt;</span><br><span class="line">        &lt;/android.support.design.widget.CollapsingToolbarLayout&gt;</span><br><span class="line">    &lt;/android.support.design.widget.AppBarLayout&gt;</span><br><span class="line">    &lt;android.support.v4.widget.NestedScrollView</span><br><span class="line">        android:layout_width=&quot;match_parent&quot;</span><br><span class="line">        android:layout_height=&quot;match_parent&quot;</span><br><span class="line">        app:layout_behavior=&quot;@string/appbar_scrolling_view_behavior&quot;&gt;</span><br><span class="line">        &lt;LinearLayout</span><br><span class="line">            android:orientation=&quot;vertical&quot;</span><br><span class="line">            android:layout_width=&quot;match_parent&quot;</span><br><span class="line">            android:layout_height=&quot;wrap_content&quot;&gt;</span><br><span class="line">            &lt;android.support.v7.widget.CardView</span><br><span class="line">                android:layout_width=&quot;match_parent&quot;</span><br><span class="line">                android:layout_height=&quot;wrap_content&quot;</span><br><span class="line">                android:layout_marginBottom=&quot;15dp&quot;</span><br><span class="line">                android:layout_marginLeft=&quot;15dp&quot;</span><br><span class="line">                android:layout_marginRight=&quot;15dp&quot;</span><br><span class="line">                android:layout_marginTop=&quot;35dp&quot;</span><br><span class="line">                app:cardCornerRadius=&quot;4dp&quot;&gt;</span><br><span class="line">                &lt;TextView</span><br><span class="line">                    android:id=&quot;@+id/fruit_content_text&quot;</span><br><span class="line">                    android:layout_width=&quot;wrap_content&quot;</span><br><span class="line">                    android:layout_height=&quot;wrap_content&quot;</span><br><span class="line">                    android:layout_margin=&quot;10dp&quot;/&gt;</span><br><span class="line">            &lt;/android.support.v7.widget.CardView&gt;</span><br><span class="line">        &lt;/LinearLayout&gt;</span><br><span class="line">    &lt;/android.support.v4.widget.NestedScrollView&gt;</span><br><span class="line"></span><br><span class="line">    &lt;android.support.design.widget.FloatingActionButton</span><br><span class="line">        android:layout_width=&quot;wrap_content&quot;</span><br><span class="line">        android:layout_height=&quot;wrap_content&quot;</span><br><span class="line">        android:layout_margin=&quot;16dp&quot;</span><br><span class="line">        android:src=&quot;@drawable/ic_comment&quot;</span><br><span class="line">        app:layout_anchor=&quot;@+id/appBar&quot;</span><br><span class="line">        app:layout_anchorGravity=&quot;bottom|right&quot;</span><br><span class="line">        app:backgroundTint=&quot;@color/cardview_light_background&quot;</span><br><span class="line">        android:layout_gravity=&quot;center_vertical|left&quot;</span><br><span class="line">        android:id=&quot;@+id/floatingActionButton&quot; /&gt;</span><br><span class="line">&lt;/android.support.design.widget.CoordinatorLayout&gt;</span><br></pre></td></tr></table></figure>
+<p>简化版：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;CoordinatorLayout&gt;//响应滚动事件</span><br><span class="line">    &lt;AppBarLayout&gt;//用于解决Toolbar被挡住的问题</span><br><span class="line">        &lt;CollapsingToolbarLayout&gt;//可折叠式标题栏</span><br><span class="line">            &lt;ImageView/&gt;</span><br><span class="line">            &lt;Toolbar/&gt;//顶部标题栏</span><br><span class="line">        &lt;/CollapsingToolbarLayout&gt;</span><br><span class="line">    &lt;/AppBarLayout&gt;</span><br><span class="line">    &lt;NestedScrollView&gt;//响应滚动事件，只能有一个直接子布局</span><br><span class="line">        &lt;LinearLayout&gt;//用于嵌套</span><br><span class="line">            &lt;CardView&gt;//卡片</span><br><span class="line">                &lt;TextView/&gt;//卡片配的文字</span><br><span class="line">            &lt;/CardView&gt;</span><br><span class="line">        &lt;/LinearLayout&gt;</span><br><span class="line">    &lt;/NestedScrollView&gt;</span><br><span class="line">    &lt;FloatingActionButton/&gt;//悬浮按钮</span><br><span class="line">&lt;/CoordinatorLayout&gt;</span><br></pre></td></tr></table></figure>
+<p>（2）修改FruitActivity中的代码</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">public class FruitActivity extends AppCompatActivity &#123;</span><br><span class="line">    public static final String FRUIT_NAME = &quot;fruit_name&quot; ;</span><br><span class="line">    public static final String FRUIT_IMAGE_ID = &quot;fruit_image_id&quot; ;</span><br><span class="line">    @Override</span><br><span class="line">    protected void onCreate( Bundle savedInstanceState) &#123;</span><br><span class="line">        super.onCreate( savedInstanceState) ;</span><br><span class="line">        setContentView(R.layout.activity_fruit) ;</span><br><span class="line">        //通过Intent获取水果名和图片的id</span><br><span class="line">        Intent intent = getIntent();</span><br><span class="line">        String fruitName = intent.getStringExtra(FRUIT_NAME);</span><br><span class="line">        int fruitImageId = intent.getIntExtra(FRUIT_IMAGE_ID,0);</span><br><span class="line">        //通过findViewById获取各个控件的实例</span><br><span class="line">        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar) ;</span><br><span class="line">        CollapsingToolbarLayout collapsingToolbar = (CollapsingToolbarLayout)findViewById(R.id.collapsing_toolbar) ;</span><br><span class="line">        ImageView fruitImageView = (ImageView) findViewById(R.id.fruit_image_view);</span><br><span class="line">        TextView fruitContentText = (TextView) findViewById(R.id.fruit_content_text);</span><br><span class="line">        //显示Toolbar按钮</span><br><span class="line">        setSupportActionBar(toolbar) ;</span><br><span class="line">        ActionBar actionBar = getSupportActionBar( );</span><br><span class="line">        if ( actionBar !=null) &#123;</span><br><span class="line">            actionBar.setDisplayHomeAsUpEnabled(true);</span><br><span class="line">        &#125;</span><br><span class="line">        //加载图片</span><br><span class="line">        collapsingToolbar.setTitle(fruitName);</span><br><span class="line">        Glide.with(this).load(fruitImageId).into(fruitImageView) ;</span><br><span class="line">        String fruitContent = generateFruitContent(fruitName) ;</span><br><span class="line">        fruitContentText.setText(fruitContent) ;</span><br><span class="line">    &#125;</span><br><span class="line">    //初始化水果数据</span><br><span class="line">    private String generateFruitContent(String fruitName) &#123;</span><br><span class="line">        StringBuilder fruitContent = new StringBuilder( ) ;</span><br><span class="line">        for (int i = 0; i &lt; 500; i++)&#123;</span><br><span class="line">            fruitContent.append(fruitName ) ;</span><br><span class="line">        &#125;</span><br><span class="line">        return fruitContent.toString ( );</span><br><span class="line">    &#125;</span><br><span class="line">    //处理Toolbar的点击事件</span><br><span class="line">    @Override</span><br><span class="line">    public boolean onOptionsItemSelected(MenuItem item) &#123;</span><br><span class="line">        switch (item.getItemId()) &#123;</span><br><span class="line">            case android.R.id.home:</span><br><span class="line">                finish();</span><br><span class="line">                return true;</span><br><span class="line">        &#125;</span><br><span class="line">        return super.onOptionsItemSelected(item) ;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>（3）处理RecyclerView的点击事件</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">@Override</span><br><span class="line">public ViewHolder onCreateViewHolder(ViewGroup parent,int viewType)&#123;</span><br><span class="line">    if (mContext == null)&#123;</span><br><span class="line">        mContext = parent.getContext();</span><br><span class="line">    &#125;</span><br><span class="line">    View view = LayoutInflater.from(mContext).inflate(R.layout.fruit_item,parent,false);</span><br><span class="line">    //给CardView注册一个点击事件监听器</span><br><span class="line">    //在点击时获取水果名和图片id，传入Intent中，最后调用startActivity启动FruitActivity</span><br><span class="line">    final ViewHolder holder = new ViewHolder(view) ;</span><br><span class="line">    holder.cardView.setOnClickListener(new View.OnClickListener() &#123;</span><br><span class="line">        @Override</span><br><span class="line">        public void onClick (View v) &#123;</span><br><span class="line">            int position = holder.getAdapterPosition();</span><br><span class="line">            Fruit fruit = mFruitList.get(position);</span><br><span class="line">            Intent intent = new Intent(mContext, FruitActivity.class);</span><br><span class="line">            intent.putExtra(FruitActivity.FRUIT_NAME,fruit.getName());</span><br><span class="line">            intent.putExtra(FruitActivity.FRUIT_IMAGE_ID,fruit.getImageId());</span><br><span class="line">            mContext.startActivity(intent);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">    return holder;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="充分利用系统状态栏空间"><a href="#充分利用系统状态栏空间" class="headerlink" title="充分利用系统状态栏空间"></a>充分利用系统状态栏空间</h2><p>为了让背景图能够与状态栏融合<br>（1）在CoordinatorLayout、AppBarLayout、CollapsingToolbarLayout、ImageView中都设置上android:fitsSystemWindows=”true”属性<br>（2）将状态栏颜色指定成透明色，在res目录建一个values-v21目录，再在里面创建一个styles.xml文件，代码编写如下:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;resources&gt;</span><br><span class="line">    &lt;style name=&quot;FruitActivityTheme&quot; parent=&quot;AppTheme&quot;&gt;</span><br><span class="line">        &lt;item name=&quot;android:statusBarColor&quot;&gt;@android:color/transparent&lt;/item&gt;</span><br><span class="line">    &lt;/style&gt;</span><br><span class="line">&lt;/resources&gt;</span><br></pre></td></tr></table></figure>
+<p>（3）对values/styles.xml文件进行修改<br>添加：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;style name=&quot;FruitActivityTheme&quot; parent=&quot;AppTheme&quot;&gt;</span><br><span class="line"></span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+<p>（4）修改在AndroidManifest.xml中的代码<br>在activity中添加android:theme=”@style/FruitActivityTheme”：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;activity </span><br><span class="line">    android:name=&quot;.FruitActivity&quot;</span><br><span class="line">    android:theme=&quot;@style/FruitActivityTheme&quot;&gt;</span><br><span class="line">&lt;/activity&gt;</span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2021/09/27/Android%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%BC%96%E7%A8%8B/" rel="prev" title="Android多线程编程">
+                  <i class="fa fa-chevron-left"></i> Android多线程编程
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">猫也</span>
+</div>
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  本站访客数:<span id="busuanzi_value_site_uv"></span>
+</span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+
+<script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+
+</body>
+</html>
