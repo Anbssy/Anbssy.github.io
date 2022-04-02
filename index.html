@@ -157,7 +157,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">5</span>
+          <span class="site-state-item-count">6</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -202,6 +202,89 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://anbyss.github.io/2022/04/02/Java%20Web/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/cat.png">
+      <meta itemprop="name" content="猫也">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="猫也の博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/04/02/Java%20Web/" class="post-title-link" itemprop="url">Java Web</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2022-04-02 15:24:00 / 修改时间：16:26:05" itemprop="dateCreated datePublished" datetime="2022-04-02T15:24:00+08:00">2022-04-02</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="Java-Web开发概述"><a href="#Java-Web开发概述" class="headerlink" title="Java Web开发概述"></a>Java Web开发概述</h1><h2 id="Web相关概念"><a href="#Web相关概念" class="headerlink" title="Web相关概念"></a>Web相关概念</h2><p><strong>Web程序</strong>：由服务器、客户端浏览器、网络组成。</p>
+<p><strong>胖客户端程序（RCP）</strong>：也叫桌面程序，参考QQ、Word、PS等等软件。<br><strong>瘦客户端程序（TCP）</strong>：一般是Web程序，不用安装，上网就能用，参考网页。</p>
+<p>按照<strong>是否需要访问网络</strong>程序分为：网络程序和非网络程序。</p>
+<p><strong>网络程序</strong>又分为：B/S结构和C/S结构。</p>
+<p><strong>B/S</strong>是指浏览器/服务器模式，一般网站是B/S结构，比如Google，Baidu。<br><strong>C/S</strong>是指客户端/服务器模式，一般网络程序是C/S结构，比如QQ、迅雷。</p>
+<h2 id="Web开发背景知识"><a href="#Web开发背景知识" class="headerlink" title="Web开发背景知识"></a>Web开发背景知识</h2><h3 id="Web访问基本原理（浏览器和Web服务器的交互关系）"><a href="#Web访问基本原理（浏览器和Web服务器的交互关系）" class="headerlink" title="Web访问基本原理（浏览器和Web服务器的交互关系）"></a>Web访问基本原理（浏览器和Web服务器的交互关系）</h3><p>（1）用户打开浏览器，输入网站的URL地址（网址）<br>（2）浏览器找到指定主机后，向Web服务器发出请求（request）<br>（3）Web服务器接收处理请求，生成处理结果，大多是HTML格式，也有其他格式<br>（4）服务器把响应的结果返回给浏览器<br>（5）浏览器接收对应结果并显示，比如Web页面</p>
+<h3 id="HTTP超文本传输协议（浏览器和Web服务器交互的桥梁）"><a href="#HTTP超文本传输协议（浏览器和Web服务器交互的桥梁）" class="headerlink" title="HTTP超文本传输协议（浏览器和Web服务器交互的桥梁）"></a>HTTP超文本传输协议（浏览器和Web服务器交互的桥梁）</h3><p>HTTP协议的客户/服务器模式的信息交换过程（4个过程）：<br><strong>建立连接</strong>:连接的建立是通过申请套接字(Socket）实现的。客户打开一个套接字并把它约束在一个端口上，如果成功，就相当于建立了一个虚拟文件。以后就可以在该虚拟文件上写数据并通过网络向外传送。<br><strong>发送请求</strong>:打开一个连接后，客户机把请求消息送到服务器的停留端口上，完成提出请求动作。HTTP/1.0请求消息的格式为:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">请求消息=请求行(通用信息|请求头|实体头) CRLF[实体内容]</span><br><span class="line">请求  行=方法  请求URL HTTP版本号  CRLF</span><br><span class="line">方    法=GET|HEAD|POST|扩展方法</span><br><span class="line">URL=协议名称+宿主名+目录与文件名请求行中的方法描述指定资源中应该执行的动作,常用的方法有GET、HEAD和POST</span><br></pre></td></tr></table></figure>
+<p><strong>发送响应</strong>:服务器在处理完客户的请求之后，要向客户机发送响应消息。HTTP/1.0<br>的响应消息格式如下:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">响应消息=状态行(通用信息头|响应头|实体头)  CRLF  (实体内容)</span><br><span class="line">状 态 行=HTTP版本号  状态码  原因叙述</span><br></pre></td></tr></table></figure>
+
+<p>状态码表示响应类型<br>1:保留;<br>2:表示请求成功地接收;<br>3:完成请求客户需进一步细化请求;<br>4:客户错误;<br>5:服务器错误。</p>
+<p>响应头的信息包括:服务程序名，通知客户请求的 URL 需要认证，请求的资源何时能使用。<br><strong>关闭连接</strong>:客户和服务器双方都可以通过关闭套接字来结束TCP/IP对话。</p>
+<h3 id="Web浏览器"><a href="#Web浏览器" class="headerlink" title="Web浏览器"></a>Web浏览器</h3><p>目前,有很多 Web浏览器,但是比较普及和流行的为Microsoft公司的Internet Explorer(IE)和 Mozilla基金会的Firefox浏览器。这两个浏览器都能很好地支持最新、最好的HTML表示标准，以及各种HTML扩展功能。另外，它们也都能支持JavaScript脚本语言以及类似Applet的 Java小程序运行。<br>其他的浏览器还有傲游浏览器（Maxthon)、腾讯TT浏览器、Opera，以及Google最新推出的谷歌浏览器（Chrome）)等。</p>
+<h3 id="Web服务器"><a href="#Web服务器" class="headerlink" title="Web服务器"></a>Web服务器</h3><p>在服务器端，与通信相关的处理都是由服务器软件负责，这些服务器软件都由第三方的软件厂商提供，<strong>开发人员只需要把功能代码部署在Web服务器中，客户端就可以通过浏览器访问到这些功能代码</strong>，从而实现向客户提供的服务，下面简单介绍常用的服务器。<br><strong>IIS</strong>是微软提供的一种 Web服务器，提供对 ASP 语言的良好支持，通过插件的安<br>装，也可以提供对PHP语言的支持。</p>
+<p><strong>Apache</strong>服务器是由Apache基金组织提供的一种Web服务器，其特长是处理静态页面，对于静态页面的处理效率非常高。</p>
+<p><strong>Tomcat</strong>也是Apache基金组织提供的一种Web服务器，提供对JSP和 Servlet的支持，通过插件的安装，同样可以提供对 PHP语言的支持，但是Tomcat 只是一个轻量级的Java Web容器，像EJB这样的服务在Tomcat中是不能运行的。</p>
+<p><strong>JBoss</strong>是一个开源的重量级的Java Web服务器，在JBoss 中，提供对J2EE 各种规范的良好支持，而且 JBoss通过了Sun公司J2EE认证，是Sun公司认可的J2EE容器。</p>
+<p>另外J2EE 的服务器还有BEA 的 <strong>Weblogic</strong>和 IBM的<strong>WebSphere</strong>等，适合大型的商业应用。这些产品的性能都是非常优秀的，可以提供对J2EE的良好支持。用户可以根据自己的需要选择合适的服务器产品。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -823,7 +906,7 @@ getDefaultSharedPreferences()
 <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 <div class="copyright">
   &copy; 
-  <span itemprop="copyrightYear">2021</span>
+  <span itemprop="copyrightYear">2022</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
