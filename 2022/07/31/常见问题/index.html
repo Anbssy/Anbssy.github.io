@@ -29,7 +29,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/202012160949446.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ0MTExODA1,size_16,color_FFFFFF,t_70#pic_center">
 <meta property="article:published_time" content="2022-07-31T10:30:20.522Z">
-<meta property="article:modified_time" content="2022-07-31T10:48:38.897Z">
+<meta property="article:modified_time" content="2022-08-20T16:57:56.479Z">
 <meta property="article:author" content="猫也">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://img-blog.csdnimg.cn/202012160949446.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ0MTExODA1,size_16,color_FFFFFF,t_70#pic_center">
@@ -148,7 +148,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%E3%80%81layout-gravity%E5%92%8Cgravity%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">1.</span> <span class="nav-text">一、layout_gravity和gravity的区别</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E5%9C%A8%E4%B8%8D%E5%90%8C%E7%9A%84%E5%B8%83%E5%B1%80%E4%B8%ADlayout-gravity%E5%92%8Cgravity%E6%98%AF%E5%90%A6%E6%9C%89%E5%8C%BA%E5%88%AB"><span class="nav-number">2.</span> <span class="nav-text">二、在不同的布局中layout_gravity和gravity是否有区别</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E5%B1%9E%E6%80%A7src%E5%92%8Cbackground%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">3.</span> <span class="nav-text">三、属性src和background的区别</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9B%9B%E3%80%81%E7%BA%BF%E6%80%A7%E5%B8%83%E5%B1%80%E4%B8%AD%E5%A6%82%E6%9E%9C%E6%9C%89%E4%B8%A4%E4%B8%AA%E5%8F%8A%E4%BB%A5%E4%B8%8A%E7%9A%84%E6%8E%A7%E4%BB%B6%EF%BC%8C%E9%9C%80%E8%A6%81%E5%8A%A0%E4%B8%80%E4%B8%AA%E5%B1%9E%E6%80%A7%E6%89%8D%E4%B8%8D%E4%BC%9A%E6%8A%A5%E9%94%99"><span class="nav-number">4.</span> <span class="nav-text">四、线性布局中如果有两个及以上的控件，需要加一个属性才不会报错</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%94%E3%80%81layout-weight%E5%B1%9E%E6%80%A7%E7%9A%84%E7%94%A8%E6%B3%95%E5%92%8C%E6%84%8F%E4%B9%89"><span class="nav-number">5.</span> <span class="nav-text">五、layout_weight属性的用法和意义</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%85%AD%E3%80%81%E5%85%B3%E4%BA%8E%E5%90%84%E7%A7%8D%E6%96%87%E4%BB%B6%E5%A4%B9%E7%9A%84%E4%B8%80%E4%BA%9B%E4%BD%9C%E7%94%A8"><span class="nav-number">6.</span> <span class="nav-text">六、关于各种文件夹的一些作用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%83%E3%80%81"><span class="nav-number">7.</span> <span class="nav-text">七、</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%E3%80%81layout-gravity%E5%92%8Cgravity%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">1.</span> <span class="nav-text">一、layout_gravity和gravity的区别</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E5%9C%A8%E4%B8%8D%E5%90%8C%E7%9A%84%E5%B8%83%E5%B1%80%E4%B8%ADlayout-gravity%E5%92%8Cgravity%E6%98%AF%E5%90%A6%E6%9C%89%E5%8C%BA%E5%88%AB"><span class="nav-number">2.</span> <span class="nav-text">二、在不同的布局中layout_gravity和gravity是否有区别</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E5%B1%9E%E6%80%A7src%E5%92%8Cbackground%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">3.</span> <span class="nav-text">三、属性src和background的区别</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9B%9B%E3%80%81%E7%BA%BF%E6%80%A7%E5%B8%83%E5%B1%80%E4%B8%AD%E5%A6%82%E6%9E%9C%E6%9C%89%E4%B8%A4%E4%B8%AA%E5%8F%8A%E4%BB%A5%E4%B8%8A%E7%9A%84%E6%8E%A7%E4%BB%B6%EF%BC%8C%E9%9C%80%E8%A6%81%E5%8A%A0%E4%B8%80%E4%B8%AA%E5%B1%9E%E6%80%A7%E6%89%8D%E4%B8%8D%E4%BC%9A%E6%8A%A5%E9%94%99"><span class="nav-number">4.</span> <span class="nav-text">四、线性布局中如果有两个及以上的控件，需要加一个属性才不会报错</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%94%E3%80%81layout-weight%E5%B1%9E%E6%80%A7%E7%9A%84%E7%94%A8%E6%B3%95%E5%92%8C%E6%84%8F%E4%B9%89"><span class="nav-number">5.</span> <span class="nav-text">五、layout_weight属性的用法和意义</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%85%AD%E3%80%81%E5%85%B3%E4%BA%8E%E5%90%84%E7%A7%8D%E6%96%87%E4%BB%B6%E5%A4%B9%E7%9A%84%E4%B8%80%E4%BA%9B%E4%BD%9C%E7%94%A8"><span class="nav-number">6.</span> <span class="nav-text">六、关于各种文件夹的一些作用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%83%E3%80%81adb%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E6%9D%83%E9%99%90%E4%B8%8D%E8%B6%B3%E7%9A%84%E9%97%AE%E9%A2%98"><span class="nav-number">7.</span> <span class="nav-text">七、adb中遇到的权限不足的问题</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -164,7 +164,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">9</span>
+          <span class="site-state-item-count">10</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -242,10 +242,16 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2022-07-31 18:30:20 / 修改时间：18:48:38" itemprop="dateCreated datePublished" datetime="2022-07-31T18:30:20+08:00">2022-07-31</time>
+      <time title="创建时间：2022-07-31 18:30:20" itemprop="dateCreated datePublished" datetime="2022-07-31T18:30:20+08:00">2022-07-31</time>
     </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2022-08-21 00:57:56" itemprop="dateModified" datetime="2022-08-21T00:57:56+08:00">2022-08-21</time>
+      </span>
 
   
     <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
@@ -327,7 +333,8 @@
 <p>4.values一般有colors（放各种颜色）、strings（用来放文字）、themes（用来放各种主题）、dimen（用来放各种尺寸）</p>
 <p>5.menu一般放菜单布局文件</p>
 <p>6.font一般用来放各种字体，格式是XXX.ttf</p>
-<h1 id="七、"><a href="#七、" class="headerlink" title="七、"></a>七、</h1>
+<h1 id="七、adb中遇到的权限不足的问题"><a href="#七、adb中遇到的权限不足的问题" class="headerlink" title="七、adb中遇到的权限不足的问题"></a>七、adb中遇到的权限不足的问题</h1><p>使用命令su,从美元符号变成#就表示成功了</p>
+
     </div>
 
     
