@@ -236,7 +236,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2022-08-21 12:24:00 / 修改时间：02:10:31" itemprop="dateCreated datePublished" datetime="2022-08-21T12:24:00+08:00">2022-08-21</time>
+      <time title="创建时间：2022-08-21 12:24:00 / 修改时间：02:24:30" itemprop="dateCreated datePublished" datetime="2022-08-21T12:24:00+08:00">2022-08-21</time>
     </span>
 
   
@@ -251,13 +251,13 @@
     <div class="post-body" itemprop="articleBody">
           <h1 id="LitePal"><a href="#LitePal" class="headerlink" title="LitePal"></a>LitePal</h1><h2 id="1-添加依赖"><a href="#1-添加依赖" class="headerlink" title="1.添加依赖"></a>1.添加依赖</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">implementation <span class="string">&#x27;org.litepal.android:core:1.6.1&#x27;</span></span><br></pre></td></tr></table></figure>
 
-<h2 id="2-添加assets目录并创建XML文件"><a href="#2-添加assets目录并创建XML文件" class="headerlink" title="2.添加assets目录并创建XML文件"></a>2.添加assets目录并创建XML文件</h2><p><img src="E:/picture/1.png"></p>
-<h2 id="3-修改配置文件AndroidManifest-xml"><a href="#3-修改配置文件AndroidManifest-xml" class="headerlink" title="3.修改配置文件AndroidManifest.xml"></a>3.修改配置文件AndroidManifest.xml</h2><p><img src="E:/picture/2.png"></p>
+<h2 id="2-添加assets目录并创建XML文件"><a href="#2-添加assets目录并创建XML文件" class="headerlink" title="2.添加assets目录并创建XML文件"></a>2.添加assets目录并创建XML文件</h2><p><img src="/.io//1.png"></p>
+<h2 id="3-修改配置文件AndroidManifest-xml"><a href="#3-修改配置文件AndroidManifest-xml" class="headerlink" title="3.修改配置文件AndroidManifest.xml"></a>3.修改配置文件AndroidManifest.xml</h2><p><img src="/.io//2.png"></p>
 <h2 id="4-创建和升级数据库"><a href="#4-创建和升级数据库" class="headerlink" title="4.创建和升级数据库"></a>4.创建和升级数据库</h2><p>1.创建一张表(类)</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.example.eat_res.bean;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">User</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> account;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> password;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getAccount</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> account;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setAccount</span><span class="params">(<span class="keyword">int</span> account)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.account = account;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getPassword</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> password;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setPassword</span><span class="params">(<span class="keyword">int</span> password)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.password = password;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>2.将类添加到映射模型</p>
-<p><img src="E:/picture/3.png"></p>
+<p><img src="/.io//3.png"></p>
 <p>代码：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;mapping <span class="class"><span class="keyword">class</span></span>=<span class="string">&quot;com.example.eat_res.bean.User&quot;</span>&gt;&lt;/mapping&gt;</span><br></pre></td></tr></table></figure>
 
@@ -265,7 +265,7 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Button createDatabase = (Button) findViewById(R.id.create_database);</span><br><span class="line">createDatabase.setOnClickListener(<span class="keyword">new</span> View.onClickListener() &#123;</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onclick</span><span class="params">(View v)</span> </span>&#123;</span><br><span class="line">		connector.getDatabase();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 
 <h2 id="5-添加数据"><a href="#5-添加数据" class="headerlink" title="5.添加数据"></a>5.添加数据</h2><p>1.类（表）继承DataSupport</p>
-<p><img src="E:/picture/4.png"></p>
+<p><img src="/.io//4.png"></p>
 <p>2.向表中添加数据：save()</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Button addData = (Button) findViewById (R.id.add_data);</span><br><span class="line">addData.setOnClickListener(<span class="keyword">new</span> View.OnClickListener() &#123;</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">		<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onclick</span><span class="params">(View v)</span> </span>&#123;</span><br><span class="line">            User user = <span class="keyword">new</span> User();</span><br><span class="line">			user.setAccount(<span class="string">&quot;1234567890&quot;</span>);</span><br><span class="line">			user.setPassword(<span class="string">&quot;123456&quot;</span>);</span><br><span class="line">			user.save();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;);</span><br></pre></td></tr></table></figure>
 
@@ -336,7 +336,7 @@
 记住，要手机打开在那个下载的APP的随意一个页面，才能打开上面的访问地址
 你就可以看到如下界面： 
 </code></pre>
-<p><img src="E:/picture/5.png"><br>    在这里你可以操作【数据库】和【shared preferences】的数据。 
+<p><img src="/.io//5.png"><br>    在这里你可以操作【数据库】和【shared preferences】的数据。 
  　　 </p>
 <p><strong>注：</strong> 手机和PC需要在同一网段 </p>
 <p> <strong>3.更换端口号</strong></p>
