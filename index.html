@@ -157,7 +157,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">10</span>
+          <span class="site-state-item-count">11</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -202,6 +202,86 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://anbyss.github.io/2022/08/21/GIT/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/cat.png">
+      <meta itemprop="name" content="猫也">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="猫也の博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/08/21/GIT/" class="post-title-link" itemprop="url">GIT</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2022-08-21 18:54:39 / 修改时间：18:59:49" itemprop="dateCreated datePublished" datetime="2022-08-21T18:54:39+08:00">2022-08-21</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p><img src="/2022/08/21/GIT/1.png" alt="1"></p>
+<p>git init                                  初始化一个仓库</p>
+<p>git add .                               添加当前目录的所有文件到暂存区</p>
+<p>git status                             显示有变更的文件</p>
+<p>git commit -m ‘XXX’            提交暂存区到仓库区</p>
+<p>git checkout                        撤销未提交的修改</p>
+<p>git reset HEAD                    取消已添加的文件</p>
+<p>git log                                   查看历史提交信息</p>
+<p>git diff                                   显示暂存区和工作区的区别</p>
+<p>git remote  -v                       显示所有的远程仓库</p>
+<p>git push -u origin master   推送指定分支到远程仓库</p>
+<p>git pull（git pull = git fetch + git merge）         </p>
+<p>取回远程主机某个分支的更新，再与本地的指定分支合并</p>
+<p>git fetch                                 取回远程主机某个分支的更新，与本地的指定分支不合并</p>
+<p>git stash                                作用的范围包括工作区和暂存区中的内容，也就是说没有提交的内容都会保存至堆栈中</p>
+<p>git stash apply                      将堆栈中的内容应用到当前目录</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1264,98 +1344,9 @@ getDefaultSharedPreferences()
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://anbyss.github.io/2021/08/29/%E5%B9%BF%E6%92%AD%E6%9C%BA%E5%88%B6/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/cat.png">
-      <meta itemprop="name" content="猫也">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="猫也の博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/08/29/%E5%B9%BF%E6%92%AD%E6%9C%BA%E5%88%B6/" class="post-title-link" itemprop="url">广播机制</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2021-08-29 20:06:22" itemprop="dateCreated datePublished" datetime="2021-08-29T20:06:22+08:00">2021-08-29</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-09-09 16:50:43" itemprop="dateModified" datetime="2021-09-09T16:50:43+08:00">2021-09-09</time>
-      </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="一、广播机制简介"><a href="#一、广播机制简介" class="headerlink" title="一、广播机制简介"></a>一、广播机制简介</h1><p>1.标准广播<br>特点：不可截断，一对多，效率高<br>优点：自由控制注册和注销，灵活性好<br>缺点：必须程序启动才能接收广播，所以逻辑写在onCreate中</p>
-<p>2.有序广播<br>特点：可截断，一个接一个，有优先级<br>优点：程序未启动也能接收广播<br>缺点：还没发现</p>
-<h1 id="二、接收系统广播"><a href="#二、接收系统广播" class="headerlink" title="二、接收系统广播"></a>二、接收系统广播</h1><h2 id="动态注册监听网络变化"><a href="#动态注册监听网络变化" class="headerlink" title="动态注册监听网络变化"></a>动态注册监听网络变化</h2><p>(1)注册广播的方式有两种：<br>在代码中注册(动态注册)<br>在AndroidManifest.xml中注册(静态注册)</p>
-<p>(2)创建一个广播接收器<br>新建一个类→继承自Broadcast-Receiver→重写父类的onReceive()方法</p>
-<p>(3)动态注册的方式写一个监听网络变化的程序</p>
-<h2 id="静态注册实现开机启动"><a href="#静态注册实现开机启动" class="headerlink" title="静态注册实现开机启动"></a>静态注册实现开机启动</h2><p>(1)通过Android Studio提供的快捷方式来创建一个广播接收器，右击com.example.broadcasttest包→New→Other→Broadcast Receiver，勾选两个属性</p>
-<p>(2)AndroidManifest.xml中添加</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;uses-permission android:name=&quot;android.permission.RECEIVE_BOOT_COMPLETED&quot; /&gt;（声明权限）</span><br><span class="line">&lt;intent-filter&gt;</span><br><span class="line">&lt;action android:name=&quot;android.intent.action.BOOT_COMPLETED&quot; /&gt;（添加相应的action）</span><br><span class="line">&lt;/intent-filter&gt;</span><br></pre></td></tr></table></figure>
-<h1 id="三、发送自定义广播"><a href="#三、发送自定义广播" class="headerlink" title="三、发送自定义广播"></a>三、发送自定义广播</h1><h2 id="发送标准广播"><a href="#发送标准广播" class="headerlink" title="发送标准广播"></a>发送标准广播</h2><p>(1)新建一个广播接收器</p>
-<p>(2)添加action<br><code>&lt;action android:name=&quot;com.example.broadcasttest.MY_BROADCAST&quot; /&gt;</code></p>
-<p>(3)写一个button</p>
-<p>(4)构建Intent对象，调用sendBroadcast（）发送广播，此时就是标准广播</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;intent-filter&gt;</span><br><span class="line">    &lt;action android:name=&quot;com.example.broadcasttest.MY_BROADCAST&quot; /&gt;</span><br><span class="line">&lt;/intent-filter&gt;</span><br></pre></td></tr></table></figure>
-<p>通过这个可以让多个项目接收此广播器的都有反应</p>
-<h2 id="发送有序广播"><a href="#发送有序广播" class="headerlink" title="发送有序广播"></a>发送有序广播</h2><p>(1)在标准广播的基础上，只要改动一行代码<br>将sendBroadcast (intent);改成sendOrderedBroadcast (intent，null);</p>
-<p><strong>sendOrderedBroadcast()方法接收两个参数，第一个参数仍然是Intent，第二个参数是一个与权限相关的字符串，这里传入null就行了</strong></p>
-<p>(2)设置优先级</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;intent-filter android:priority=&quot;100&quot;&gt;</span><br><span class="line">    &lt;action android:name=&quot;com.example.broadcasttest.MY_BROADCAST&quot; /&gt;</span><br><span class="line">&lt;/intent-filter&gt;</span><br></pre></td></tr></table></figure>
-
-<p>(3)选择是否允许广播传递<br>在OnReceive()中调用abortBroadcast();表示将这条广播截断，后面的广播接收不到这条广播</p>
-<h1 id="四、使用本地广播（解决安全性问题）"><a href="#四、使用本地广播（解决安全性问题）" class="headerlink" title="四、使用本地广播（解决安全性问题）"></a>四、使用本地广播（解决安全性问题）</h1><p>1.本地广播的代码跟动态注册很像<br>2.是通过LocalBroadcastManager的getInstance()方法得到了它的一个实例<br>3.在注册广播接收器的时候调用的是LocalBroadcastManager的registerReceiver()方法<br>4.发送广播的时候调用的是LocalBroadcastManager的sendBroadcast()方法</p>
-<p>本地广播的优势：<br>(1)可以明确地知道正在发送的广播不会离开我们的程序，因此不必担心机密数据泄漏。<br>(2)其他的程序无法将广播发送到我们程序的内部，因此不需要担心会有安全漏洞的隐患。<br>(3)发送本地广播比发送系统全局广播将会更加高效。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+  </nav>
 
 </div>
   </main>
