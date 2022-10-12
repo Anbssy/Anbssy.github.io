@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/all.min.css" integrity="sha256-2H3fkXt6FEmrReK448mDVGKb3WW2ZZw35gI7vqHOE4Y=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"anbyss.github.io","root":"/","images":"/images","scheme":"Gemini","version":"8.7.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+<meta name="description" content="1.WebView有安全漏洞，用不了。 2.http协议访问网络获取HttpURLConnection的实例：1HttpURLConnection connection &#x3D; (HttpURLConnection) url.openConnection();  http请求1.get12345678910111213141516171819202122232425262728293031323334">
+<meta property="og:type" content="article">
+<meta property="og:title" content="网络">
+<meta property="og:url" content="https://anbyss.github.io/2022/08/23/%E7%BD%91%E7%BB%9C/index.html">
+<meta property="og:site_name" content="猫也の博客">
+<meta property="og:description" content="1.WebView有安全漏洞，用不了。 2.http协议访问网络获取HttpURLConnection的实例：1HttpURLConnection connection &#x3D; (HttpURLConnection) url.openConnection();  http请求1.get12345678910111213141516171819202122232425262728293031323334">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-08-23T07:38:13.000Z">
+<meta property="article:modified_time" content="2022-08-23T14:03:05.261Z">
+<meta property="article:author" content="猫也">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://anbyss.github.io/2022/08/23/%E7%BD%91%E7%BB%9C/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://anbyss.github.io/2022/08/23/%E7%BD%91%E7%BB%9C/","path":"2022/08/23/网络/","title":"网络"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>网络 | 猫也の博客</title>
+  
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="猫也の博客" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">猫也の博客</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-WebView"><span class="nav-number">1.</span> <span class="nav-text">1.WebView</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-http%E5%8D%8F%E8%AE%AE%E8%AE%BF%E9%97%AE%E7%BD%91%E7%BB%9C"><span class="nav-number">2.</span> <span class="nav-text">2.http协议访问网络</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%8E%B7%E5%8F%96HttpURLConnection%E7%9A%84%E5%AE%9E%E4%BE%8B%EF%BC%9A"><span class="nav-number">2.1.</span> <span class="nav-text">获取HttpURLConnection的实例：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#http%E8%AF%B7%E6%B1%82"><span class="nav-number">2.2.</span> <span class="nav-text">http请求</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-get"><span class="nav-number">2.2.1.</span> <span class="nav-text">1.get</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-post"><span class="nav-number">2.2.2.</span> <span class="nav-text">2.post</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-%E5%BC%80%E6%BA%90%E5%BA%93OkHttp"><span class="nav-number">3.</span> <span class="nav-text">3.开源库OkHttp</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E6%B7%BB%E5%8A%A0%E4%BE%9D%E8%B5%96"><span class="nav-number">3.1.</span> <span class="nav-text">1.添加依赖</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E4%BD%BF%E7%94%A8"><span class="nav-number">3.2.</span> <span class="nav-text">2.使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-get%E8%AF%B7%E6%B1%82"><span class="nav-number">3.2.1.</span> <span class="nav-text">1.get请求</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-post%E8%AF%B7%E6%B1%82"><span class="nav-number">3.2.2.</span> <span class="nav-text">2.post请求</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-%E7%BD%91%E7%BB%9C%E4%BC%A0%E8%BE%93%E6%95%B0%E6%8D%AE%E6%A0%BC%E5%BC%8F"><span class="nav-number">4.</span> <span class="nav-text">4.网络传输数据格式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-XML%E6%A0%BC%E5%BC%8F"><span class="nav-number">4.1.</span> <span class="nav-text">1.XML格式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Pull%E8%A7%A3%E6%9E%90"><span class="nav-number">4.1.1.</span> <span class="nav-text">Pull解析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SAX%E8%A7%A3%E6%9E%90"><span class="nav-number">4.1.2.</span> <span class="nav-text">SAX解析</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-JSON%E6%A0%BC%E5%BC%8F"><span class="nav-number">4.2.</span> <span class="nav-text">2.JSON格式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#JSONObject%E8%A7%A3%E6%9E%90"><span class="nav-number">4.2.1.</span> <span class="nav-text">JSONObject解析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GSON%E5%BC%80%E6%BA%90%E5%BA%93%E8%A7%A3%E6%9E%90"><span class="nav-number">4.2.2.</span> <span class="nav-text">GSON开源库解析</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-%E5%8A%A0%E5%85%A5%E4%BE%9D%E8%B5%96"><span class="nav-number">4.2.2.1.</span> <span class="nav-text">1.加入依赖</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E6%96%B0%E5%BB%BA%E4%B8%80%E4%B8%AAApp%E7%B1%BB"><span class="nav-number">4.2.2.2.</span> <span class="nav-text">2.新建一个App类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-%E4%B8%BB%E6%B4%BB%E5%8A%A8%E7%9A%84%E4%BB%A3%E7%A0%81"><span class="nav-number">4.2.2.3.</span> <span class="nav-text">3.主活动的代码</span></a></li></ol></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-overview">
+            <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="猫也"
+      src="/images/cat.png">
+  <p class="site-author-name" itemprop="name">猫也</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">12</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Anbyss/Anbyss.github.io" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Anbyss&#x2F;Anbyss.github.io" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:yourname@gmail.com" title="E-Mail → mailto:yourname@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://weibo.com/yourname" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;yourname" rel="noopener" target="_blank"><i class="fab fa-weibo fa-fw"></i>Weibo</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/atom.xml" title="RSS → &#x2F;atom.xml"><i class="fa fa-rss fa-fw"></i>RSS</a>
+      </span>
+  </div>
+
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://anbyss.github.io/2022/08/23/%E7%BD%91%E7%BB%9C/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/cat.png">
+      <meta itemprop="name" content="猫也">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="猫也の博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          网络
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2022-08-23 15:38:13 / 修改时间：22:03:05" itemprop="dateCreated datePublished" datetime="2022-08-23T15:38:13+08:00">2022-08-23</time>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="1-WebView"><a href="#1-WebView" class="headerlink" title="1.WebView"></a>1.WebView</h1><p>有安全漏洞，用不了。</p>
+<h1 id="2-http协议访问网络"><a href="#2-http协议访问网络" class="headerlink" title="2.http协议访问网络"></a>2.http协议访问网络</h1><h2 id="获取HttpURLConnection的实例："><a href="#获取HttpURLConnection的实例：" class="headerlink" title="获取HttpURLConnection的实例："></a>获取HttpURLConnection的实例：</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">HttpURLConnection connection = (HttpURLConnection) url.openConnection();</span><br></pre></td></tr></table></figure>
+
+<h2 id="http请求"><a href="#http请求" class="headerlink" title="http请求"></a>http请求</h2><h3 id="1-get"><a href="#1-get" class="headerlink" title="1.get"></a>1.get</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">get</span><span class="params">(String urlPath)</span> </span>&#123;</span><br><span class="line">  HttpURLConnection connection = <span class="keyword">null</span>;</span><br><span class="line">  InputStream is = <span class="keyword">null</span>;</span><br><span class="line">  <span class="keyword">try</span> &#123;</span><br><span class="line">    URL url = <span class="keyword">new</span> URL(urlPath);</span><br><span class="line">    <span class="comment">//获得URL对象</span></span><br><span class="line">    connection = (HttpURLConnection) url.openConnection();</span><br><span class="line">    <span class="comment">//获得HttpURLConnection对象</span></span><br><span class="line">    connection.setRequestMethod(<span class="string">&quot;GET&quot;</span>);</span><br><span class="line">    <span class="comment">// 默认为GET</span></span><br><span class="line">    connection.setUseCaches(<span class="keyword">false</span>);</span><br><span class="line">    <span class="comment">//不使用缓存</span></span><br><span class="line">    connection.setConnectTimeout(<span class="number">10000</span>);</span><br><span class="line">    <span class="comment">//设置超时时间</span></span><br><span class="line">    connection.setReadTimeout(<span class="number">10000</span>);</span><br><span class="line">    <span class="comment">//设置读取超时时间</span></span><br><span class="line">    connection.setDoInput(<span class="keyword">true</span>);</span><br><span class="line">    <span class="comment">//设置是否从httpUrlConnection读入，默认情况下是true;</span></span><br><span class="line">    <span class="keyword">if</span> (connection.getResponseCode() == HttpURLConnection.HTTP_OK) &#123;</span><br><span class="line">      <span class="comment">//相应码是否为200</span></span><br><span class="line">      is = connection.getInputStream();</span><br><span class="line">      <span class="comment">//获得输入流</span></span><br><span class="line">      BufferedReader reader = <span class="keyword">new</span> BufferedReader(<span class="keyword">new</span> InputStreamReader(is));</span><br><span class="line">      <span class="comment">//包装字节流为字符流</span></span><br><span class="line">      StringBuilder response = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">      String line;</span><br><span class="line">      <span class="keyword">while</span> ((line = reader.readLine()) != <span class="keyword">null</span>) &#123;</span><br><span class="line">         response.append(line);</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">return</span> response.toString();</span><br><span class="line">    &#125;</span><br><span class="line">  &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">    e.printStackTrace();</span><br><span class="line">  &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (connection != <span class="keyword">null</span>) &#123;</span><br><span class="line">      connection.disconnect();</span><br><span class="line">      connection = <span class="keyword">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (is != <span class="keyword">null</span>) &#123;</span><br><span class="line">      <span class="keyword">try</span> &#123;</span><br><span class="line">        is.close();</span><br><span class="line">        is = <span class="keyword">null</span>;</span><br><span class="line">      &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-post"><a href="#2-post" class="headerlink" title="2.post"></a>2.post</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> String <span class="title">post</span><span class="params">(String urlPath, Map&lt;String, String&gt; params)</span> </span>&#123;</span><br><span class="line">     <span class="keyword">if</span> (params == <span class="keyword">null</span> || params.size() == <span class="number">0</span>) &#123;</span><br><span class="line">      <span class="keyword">return</span> get(urlPath);</span><br><span class="line">     &#125;</span><br><span class="line">     OutputStream os = <span class="keyword">null</span>;</span><br><span class="line">     InputStream is = <span class="keyword">null</span>;</span><br><span class="line">     HttpURLConnection connection = <span class="keyword">null</span>;</span><br><span class="line">     StringBuffer body = getParamString(params);</span><br><span class="line">     <span class="keyword">byte</span>[] data = body.toString().getBytes();</span><br><span class="line">     <span class="keyword">try</span> &#123;</span><br><span class="line">       URL url = <span class="keyword">new</span> URL(urlPath);</span><br><span class="line">       <span class="comment">//获得URL对象</span></span><br><span class="line">       connection = (HttpURLConnection) url.openConnection();</span><br><span class="line">       <span class="comment">//获得HttpURLConnection对象</span></span><br><span class="line">       connection.setRequestMethod(<span class="string">&quot;POST&quot;</span>);</span><br><span class="line">       <span class="comment">// 设置请求方法为post</span></span><br><span class="line">       connection.setUseCaches(<span class="keyword">false</span>);</span><br><span class="line">       <span class="comment">//不使用缓存</span></span><br><span class="line">       connection.setConnectTimeout(<span class="number">10000</span>);</span><br><span class="line">       <span class="comment">//设置超时时间</span></span><br><span class="line">       connection.setReadTimeout(<span class="number">10000</span>);</span><br><span class="line">       <span class="comment">//设置读取超时时间</span></span><br><span class="line">       connection.setDoInput(<span class="keyword">true</span>);</span><br><span class="line">       <span class="comment">//设置是否从httpUrlConnection读入，默认情况下是true;</span></span><br><span class="line">       connection.setDoOutput(<span class="keyword">true</span>);</span><br><span class="line">       <span class="comment">//设置为true后才能写入参数</span></span><br><span class="line">       connection.setRequestProperty(<span class="string">&quot;Content-Type&quot;</span>, <span class="string">&quot;application/x-www-form-urlencoded&quot;</span>);</span><br><span class="line">       connection.setRequestProperty(<span class="string">&quot;Content-Length&quot;</span>, String.valueOf(data.length));</span><br><span class="line">       os = connection.getOutputStream();</span><br><span class="line">       os.write(data);</span><br><span class="line">       <span class="comment">//写入参数</span></span><br><span class="line">       <span class="keyword">if</span> (connection.getResponseCode() == HttpURLConnection.HTTP_OK) &#123;</span><br><span class="line">        <span class="comment">//相应码是否为200</span></span><br><span class="line">        is = connection.getInputStream();</span><br><span class="line">        <span class="comment">//获得输入流</span></span><br><span class="line">        BufferedReader reader = <span class="keyword">new</span> BufferedReader(<span class="keyword">new</span> InputStreamReader(is));</span><br><span class="line">        <span class="comment">//包装字节流为字符流</span></span><br><span class="line">        StringBuilder response = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">        String line;</span><br><span class="line">        <span class="keyword">while</span> ((line = reader.readLine()) != <span class="keyword">null</span>) &#123;</span><br><span class="line">         response.append(line);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> response.toString();</span><br><span class="line">      &#125;</span><br><span class="line">     &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">      e.printStackTrace();</span><br><span class="line">     &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">      <span class="comment">//关闭</span></span><br><span class="line">      <span class="keyword">if</span> (os != <span class="keyword">null</span>) &#123;</span><br><span class="line">       <span class="keyword">try</span> &#123;</span><br><span class="line">         os.close();</span><br><span class="line">       &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">         e.printStackTrace();</span><br><span class="line">       &#125;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">if</span> (is != <span class="keyword">null</span>) &#123;</span><br><span class="line">       <span class="keyword">try</span> &#123;</span><br><span class="line">         is.close();</span><br><span class="line">       &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">         e.printStackTrace();</span><br><span class="line">       &#125;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">if</span> (connection != <span class="keyword">null</span>) &#123;</span><br><span class="line">       connection.disconnect();</span><br><span class="line">       connection = <span class="keyword">null</span>;</span><br><span class="line">      &#125;</span><br><span class="line">     &#125;</span><br><span class="line">     <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">private</span> StringBuffer <span class="title">getParamString</span><span class="params">(Map&lt;String, String&gt; params)</span> </span>&#123;</span><br><span class="line">     StringBuffer result = <span class="keyword">new</span> StringBuffer();</span><br><span class="line">     Iterator&lt;Map.Entry&lt;String, String&gt;&gt; iterator = params.entrySet().iterator();</span><br><span class="line">     <span class="keyword">while</span> (iterator.hasNext()) &#123;</span><br><span class="line">       Map.Entry&lt;String, String&gt; param = iterator.next();</span><br><span class="line">       String key = param.getKey();</span><br><span class="line">       String value = param.getValue();</span><br><span class="line">       result.append(key).append(<span class="string">&#x27;=&#x27;</span>).append(value);</span><br><span class="line">       <span class="keyword">if</span> (iterator.hasNext()) &#123;</span><br><span class="line">         result.append(<span class="string">&#x27;&amp;&#x27;</span>);</span><br><span class="line">       &#125;</span><br><span class="line">     &#125;</span><br><span class="line">     <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="3-开源库OkHttp"><a href="#3-开源库OkHttp" class="headerlink" title="3.开源库OkHttp"></a>3.开源库OkHttp</h1><h2 id="1-添加依赖"><a href="#1-添加依赖" class="headerlink" title="1.添加依赖"></a>1.添加依赖</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">implementation &#x27;com.squareup.okhttp3:okhttp:3.10.0&#x27;</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-使用"><a href="#2-使用" class="headerlink" title="2.使用"></a>2.使用</h2><h3 id="1-get请求"><a href="#1-get请求" class="headerlink" title="1.get请求"></a>1.get请求</h3><p>创建一个OKHttpClient的实例</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">OkHttpClient client = <span class="keyword">new</span> OkHttpClient();</span><br></pre></td></tr></table></figure>
+
+<p>发起一条HTTP请求，先创建一个Request对象</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Request request = <span class="keyword">new</span> Request.Builder()</span><br><span class="line">.url(<span class="string">&quot;http://www.baidu.com&quot;</span>)</span><br><span class="line">.build();</span><br></pre></td></tr></table></figure>
+
+<p>调用newCall创建一个Call对象，调用execute()发送请求并获取服务器返回的数据。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Response response = client.newCall(request).execute();</span><br></pre></td></tr></table></figure>
+
+<p>获取返回内容</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">String responseData = response.body().string();</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-post请求"><a href="#2-post请求" class="headerlink" title="2.post请求"></a>2.post请求</h3><p>先构建一个RequestBody存放待提交的参数</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">RequestBody requestBody = <span class="keyword">new</span> FormBody.Builder()</span><br><span class="line">.add(<span class="string">&quot;username&quot;</span>,<span class="string">&quot;admin&quot;</span>)</span><br><span class="line">.add(<span class="string">&quot;password&quot;</span>,<span class="string">&quot;123456&quot;</span>)</span><br><span class="line">.build();</span><br></pre></td></tr></table></figure>
+
+<p>调用post()方法传入RequestBody对象</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Request request = <span class="keyword">new</span> Request.Builder()</span><br><span class="line">.url(<span class="string">&quot;http://www.baidu.com&quot;</span>)</span><br><span class="line">.post(requestBody)</span><br><span class="line">.build();</span><br></pre></td></tr></table></figure>
+
+<p>调用newCall创建一个Call对象，调用execute()发送请求并获取服务器返回的数据。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Response response = client.newCall(request).execute();</span><br></pre></td></tr></table></figure>
+
+<p>获取返回内容</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">String responseData = response.body().string();</span><br></pre></td></tr></table></figure>
+
+<h1 id="4-网络传输数据格式"><a href="#4-网络传输数据格式" class="headerlink" title="4.网络传输数据格式"></a>4.网络传输数据格式</h1><h2 id="1-XML格式"><a href="#1-XML格式" class="headerlink" title="1.XML格式"></a>1.XML格式</h2><h3 id="Pull解析"><a href="#Pull解析" class="headerlink" title="Pull解析"></a>Pull解析</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Pull解析XML格式</span></span><br><span class="line">   <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">parseXMLWithPull</span><span class="params">(String xmlData)</span> </span>&#123;</span><br><span class="line">       <span class="keyword">try</span> &#123;</span><br><span class="line">           XmlPullParserFactory factory = XmlPullParserFactory.newInstance();</span><br><span class="line">           XmlPullParser xmlPullParser = factory.newPullParser();</span><br><span class="line">           xmlPullParser.setInput(<span class="keyword">new</span> StringReader(xmlData));</span><br><span class="line">           <span class="keyword">int</span> eventType = xmlPullParser.getEventType();</span><br><span class="line">           String id = <span class="string">&quot;&quot;</span>;</span><br><span class="line">           String name = <span class="string">&quot;&quot;</span>;</span><br><span class="line">           String version = <span class="string">&quot;&quot;</span>;</span><br><span class="line">           <span class="keyword">while</span>(eventType != XmlPullParser.END_DOCUMENT)&#123;</span><br><span class="line">               String nodeName = xmlPullParser.getName();</span><br><span class="line">               <span class="keyword">switch</span> (eventType)&#123;</span><br><span class="line">                   <span class="comment">//开始解析某个节点</span></span><br><span class="line">                   <span class="keyword">case</span> XmlPullParser.START_TAG:&#123;</span><br><span class="line">                       <span class="keyword">if</span> (<span class="string">&quot;id&quot;</span>.equals(nodeName))&#123;</span><br><span class="line">                           id = xmlPullParser.nextText();</span><br><span class="line">                       &#125;<span class="keyword">else</span> <span class="keyword">if</span>(<span class="string">&quot;name&quot;</span>.equals(nodeName))&#123;</span><br><span class="line">                           name = xmlPullParser.nextText();</span><br><span class="line">                       &#125;<span class="keyword">else</span> <span class="keyword">if</span>(<span class="string">&quot;version&quot;</span>.equals(nodeName))&#123;</span><br><span class="line">                           version = xmlPullParser.nextText();</span><br><span class="line">                       &#125;</span><br><span class="line">                       <span class="keyword">break</span>;</span><br><span class="line">                   &#125;</span><br><span class="line">                   <span class="comment">//完成解析某个节点</span></span><br><span class="line">                   <span class="keyword">case</span> XmlPullParser.END_TAG:&#123;</span><br><span class="line">                       <span class="keyword">if</span> (<span class="string">&quot;app&quot;</span>.equals(nodeName))&#123;</span><br><span class="line">                           Log.d(<span class="string">&quot;MainActivity&quot;</span>,<span class="string">&quot;id is &quot;</span>+id);</span><br><span class="line">                           Log.d(<span class="string">&quot;MainActivity&quot;</span>,<span class="string">&quot;name is &quot;</span>+name);</span><br><span class="line">                           Log.d(<span class="string">&quot;MainActivity&quot;</span>,<span class="string">&quot;version is &quot;</span>+version);</span><br><span class="line">                       &#125;</span><br><span class="line">                       <span class="keyword">break</span>;</span><br><span class="line">                   &#125;</span><br><span class="line">                   <span class="keyword">default</span>:</span><br><span class="line">                       <span class="keyword">break</span>;</span><br><span class="line">               &#125;</span><br><span class="line">               eventType = xmlPullParser.next();</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;<span class="keyword">catch</span> (Exception e)&#123;</span><br><span class="line">           e.printStackTrace();</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="SAX解析"><a href="#SAX解析" class="headerlink" title="SAX解析"></a>SAX解析</h3><p>ContentHander类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.example.webview;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> android.util.Log;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.xml.sax.Attributes;</span><br><span class="line"><span class="keyword">import</span> org.xml.sax.SAXException;</span><br><span class="line"><span class="keyword">import</span> org.xml.sax.helpers.DefaultHandler;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.zip.DeflaterInputStream;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ContentHander</span> <span class="keyword">extends</span> <span class="title">DefaultHandler</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String nodeName;</span><br><span class="line">    <span class="keyword">private</span> StringBuilder id;</span><br><span class="line">    <span class="keyword">private</span> StringBuilder name;</span><br><span class="line">    <span class="keyword">private</span> StringBuilder version;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">startDocument</span><span class="params">()</span> <span class="keyword">throws</span> SAXException </span>&#123;</span><br><span class="line">        id = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">        name = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">        version = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">endDocument</span><span class="params">()</span> <span class="keyword">throws</span> SAXException </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.endDocument();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">startElement</span><span class="params">(String uri, String localName, String qName, Attributes attributes)</span> <span class="keyword">throws</span> SAXException </span>&#123;</span><br><span class="line">        nodeName = localName;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">endElement</span><span class="params">(String uri, String localName, String qName)</span> <span class="keyword">throws</span> SAXException </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="string">&quot;app&quot;</span>.equals(localName))&#123;</span><br><span class="line">            Log.d(<span class="string">&quot;ContentHandler&quot;</span>,<span class="string">&quot;id is &quot;</span>+id.toString().trim());</span><br><span class="line">            Log.d(<span class="string">&quot;ContentHandler&quot;</span>,<span class="string">&quot;name is &quot;</span>+name.toString().trim());</span><br><span class="line">            Log.d(<span class="string">&quot;ContentHandler&quot;</span>,<span class="string">&quot;version is &quot;</span>+version.toString().trim());</span><br><span class="line">            <span class="comment">//将StringBuilder清空掉</span></span><br><span class="line">            id.setLength(<span class="number">0</span>);</span><br><span class="line">            name.setLength(<span class="number">0</span>);</span><br><span class="line">            version.setLength(<span class="number">0</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">characters</span><span class="params">(<span class="keyword">char</span>[] ch, <span class="keyword">int</span> start, <span class="keyword">int</span> length)</span> <span class="keyword">throws</span> SAXException </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="string">&quot;id&quot;</span>.equals(nodeName))&#123;</span><br><span class="line">            id.append(ch,start,length);</span><br><span class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span>(<span class="string">&quot;name&quot;</span>.equals(nodeName))&#123;</span><br><span class="line">            name.append(ch,start,length);</span><br><span class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span>(<span class="string">&quot;version&quot;</span>.equals(nodeName))&#123;</span><br><span class="line">            version.append(ch,start,length);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>活动中调用</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//SAX解析XML格式</span></span><br><span class="line">   <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">parseXMLWithSAX</span><span class="params">(String xmlData)</span></span>&#123;</span><br><span class="line">       <span class="keyword">try</span> &#123;</span><br><span class="line">           SAXParserFactory factory = SAXParserFactory.newInstance();</span><br><span class="line">           XMLReader xmlReader = factory.newSAXParser().getXMLReader();</span><br><span class="line">           ContentHander hander = <span class="keyword">new</span> ContentHander();</span><br><span class="line">           <span class="comment">//将ContentHander的实例设置到XMLReader中</span></span><br><span class="line">           xmlReader.setContentHandler(hander);</span><br><span class="line">           <span class="comment">//开始执行解析</span></span><br><span class="line">           xmlReader.parse(<span class="keyword">new</span> InputSource(<span class="keyword">new</span> StringReader(xmlData)));</span><br><span class="line">       &#125;<span class="keyword">catch</span> (Exception e)&#123;</span><br><span class="line">           e.printStackTrace();</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="2-JSON格式"><a href="#2-JSON格式" class="headerlink" title="2.JSON格式"></a>2.JSON格式</h2><h3 id="JSONObject解析"><a href="#JSONObject解析" class="headerlink" title="JSONObject解析"></a>JSONObject解析</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//JSONObject解析JSON格式</span></span><br><span class="line">   <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">parseJSONWithJSONObject</span><span class="params">(String jsonData)</span> </span>&#123;</span><br><span class="line">       <span class="keyword">try</span>&#123;</span><br><span class="line">           JSONArray jsonArray = <span class="keyword">new</span> JSONArray(jsonData);</span><br><span class="line">           <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; jsonArray.length(); i++) &#123;</span><br><span class="line">               JSONObject json0bject = jsonArray.getJSONObject(i);</span><br><span class="line">               String id = json0bject.getString(<span class="string">&quot;id&quot;</span>);</span><br><span class="line">               String name = json0bject.getString(<span class="string">&quot;name&quot;</span>);</span><br><span class="line">               String version = json0bject.getString(<span class="string">&quot;version&quot;</span>);</span><br><span class="line">               Log.d(<span class="string">&quot;MainActivity&quot;</span>, <span class="string">&quot;id is &quot;</span> + id);</span><br><span class="line">               Log.d(<span class="string">&quot;MainActivity&quot;</span>, <span class="string">&quot;name is &quot;</span> + name);</span><br><span class="line">               Log.d(<span class="string">&quot;MainActivity&quot;</span>, <span class="string">&quot;version is &quot;</span> + version);</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;<span class="keyword">catch</span> (Exception e)&#123;</span><br><span class="line">           e.printStackTrace();</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="GSON开源库解析"><a href="#GSON开源库解析" class="headerlink" title="GSON开源库解析"></a>GSON开源库解析</h3><h4 id="1-加入依赖"><a href="#1-加入依赖" class="headerlink" title="1.加入依赖"></a>1.加入依赖</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">implementation &#x27;com.google.code.gson:gson:2.9.0&#x27;</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-新建一个App类"><a href="#2-新建一个App类" class="headerlink" title="2.新建一个App类"></a>2.新建一个App类</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.example.webview;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">App</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String id;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> String version;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setId</span><span class="params">(String id)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.id = id;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setVersion</span><span class="params">(String version)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.version = version;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-主活动的代码"><a href="#3-主活动的代码" class="headerlink" title="3.主活动的代码"></a>3.主活动的代码</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//开源库GSON解析JSON格式</span></span><br><span class="line">   <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">parseJSONWithGSON</span><span class="params">(String jsonData)</span></span>&#123;</span><br><span class="line">       Gson gson = <span class="keyword">new</span> Gson();</span><br><span class="line">       List&lt;App&gt; appList = gson.fromJson(jsonData,<span class="keyword">new</span> TypeToken&lt;List&lt;App&gt;&gt;()&#123;&#125;.getType());</span><br><span class="line">       <span class="keyword">for</span> (App app : appList)&#123;</span><br><span class="line">           Log.d(<span class="string">&quot;MainActivity&quot;</span>,<span class="string">&quot;id is &quot;</span>+ app.getId());</span><br><span class="line">           Log.d(<span class="string">&quot;MainActivity&quot;</span>,<span class="string">&quot;name is &quot;</span>+ app.getName());</span><br><span class="line">           Log.d(<span class="string">&quot;MainActivity&quot;</span>,<span class="string">&quot;version is &quot;</span>+ app.getVersion());</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/08/21/GIT/" rel="prev" title="GIT">
+                  <i class="fa fa-chevron-left"></i> GIT
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">猫也</span>
+</div>
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  本站访客数:<span id="busuanzi_value_site_uv"></span>
+</span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+
+<script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+
+</body>
+</html>
